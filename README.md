@@ -1,13 +1,13 @@
 # JSP_TeamProject
 
-##국비 첫 팀프로젝트 입니다
+## 국비 첫 팀프로젝트 입니다
 
 - 프로젝트 주제는 유기동물 커뮤니티를 만들었습니다
-
 - 클론코딩 + 저희가 필요한 부분을 만들었습니다.
 - 클론코딩한 사이트는 https://www.yongin.go.kr/pet/index.do 용인시 반려동물 사이트 입니다
-
-#### 제가 맡은 부분(html ,jsp,css,js)
+- HTML,JSP은  WEBCONTENT - app 에서 확인하실수있으며
+- CSS , JS는  WEBCONTENT - assets 에서 확인하실수 있습니다
+#### 제가 맡은 부분(html ,jsp,css,js) 
 #### header.jsp 부분만 미디어쿼리를 하였으며 추후 전체적으로 수정할예정입니다
 - index.jsp  //메인 페이지
 - memberJoin1.jsp //약관동의 페이지
