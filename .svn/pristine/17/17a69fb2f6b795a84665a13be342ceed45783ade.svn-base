@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+.BpkLink_bpk-link__35QXm
+{
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    color: #0770e3;
+    color: var(--bpk-link-color,#0770e3);
+}
+
+.BpkCheckbox_bpk-checkbox__3_jKD
+{
+    position: relative;
+    display: inline-block;
+    padding-left: 1.75rem;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+}
+
+input[id*="popup"]
+{
+	display: none;
+}
+
+input[id*="popup"] + label
+{
+	display: line-block;
+	padding: 20px;
+	background: #ffcd41;
+	color: #fff;
+}
+
+input[id*="popup"] + label + div
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+}
+
+input[id*="popup"] + label + div > div
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 500px;
+	height: 300px;
+	background: #fff;
+	z-index: 2;
+}
+
+input[id*="popup"] + label + div > div > label
+{
+	position: absolute;
+	top: 0%;
+	right: 0%;
+	transform: translate(40%, -40%);
+	padding: 20px;
+	background: #dd5347;
+	border-radius: 100%;
+	z-index: 1;
+}
+
+input[id*="popup"] + label + div > label
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, .9);
+	z-index: 1;
+}
+
+.close-area
+{
+    display: inline;
+    float: right;
+    padding-right: 10px;
+    cursor: pointer;
+    text-shadow: 1px 1px 2px gray;
+    color: white;
+}
+
+input[id*="popup"] + label + div
+{
+	display: none;
+}
+
+input[id*="popup"]:checked + label + div
+{
+	display: block;
+}
+div#img{
+	background-color: #0770e3;
+	/* background-image: url("https://cdn.discordapp.com/attachments/936228848016715809/949671523260702730/unknown.png");
+	width: 300px;
+	height: 300px;
+	box-sizing: 100%; */
+}

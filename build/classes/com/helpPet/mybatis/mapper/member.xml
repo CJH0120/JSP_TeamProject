@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="Member">
+<!-- 아이디 중복검사 -->
+	<select id="checkId" parameterType="string" resultType="_int">
+		select count(memberId) from tbl_member 
+		where memberId = #{memberId}
+	</select>
+	
+	<!-- 회원 가입 -->
+	<insert id="join1form" parameterType="memberVO">
+		insert into tbl_user
+		(
+			userId, userPw, userName, userNickName, userEmail, 
+			userHandPhone,userAnimalType
+			
+		)
+		values
+		(
+			#{userId}, #{userPw}, #{userName}, #{userNickName}, #{userEmail},
+			 #{userHandPhone}, #{userAnimalType}
+		 )
+	</insert>
+	
+	
+</mapper>

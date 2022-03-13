@@ -1,0 +1,79 @@
+.isee_wrap{
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+   
+}
+.isee_start{
+    width: 80%;
+    margin: 0 auto;
+    padding: 0;
+    border: 1px solid black;
+}
+ 
+ 
+.pageNavigation{
+    text-align: end;
+/*     margin-right: 10%;
+    margin-left: 10%; */
+}
+
+.pageNavigation .location span, a{
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px soild black;
+} 
+
+.location{
+	margin-bottom: 10%;
+}
+
+
+.isee_title{
+    margin: 0 auto;
+    width: 90%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+   
+}
+.isee_header_click{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    
+    
+}
+
+.isee_main_area{
+    position: relative;
+    
+}
+
+.isee_main_area_ul{
+    margin: 0 auto;
+    width: 90%;
+    padding:0;   
+    display:block;
+    overflow: hidden;
+    border: 1px solid black;
+    
+}
+.isee_main_area_li
+
+{   
+
+    float:left; margin-left:-1px; 
+    height: auto;
+    list-style: none;
+    
+    width: 300px;
+    
+}
+.main_input_img{
+    width: 300px;
+}
+
+
+}

@@ -1,0 +1,96 @@
+#wrap{
+	margin-top: 18%;
+	text-align: center;
+}
+
+.pageNavigation{
+    text-align: end;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+.pageNavigation .location span, a{
+    text-decoration: none;
+    color: black;
+}
+
+div.location{
+    border-bottom: 1px solid black;
+    padding-bottom: 1%;
+    text-align: left;
+}
+
+#title_wrap{
+	padding-top: 5%	
+}
+
+h1.idPw_title{
+	font-size: 48px;
+}
+
+p#id
+{
+	padding-top: 5%;
+    text-align: center;
+}
+
+input#name, input#email{
+	border: none;
+    border-bottom: 1px solid #ddd;
+    outline: none;
+    width: 270px;
+}
+
+h3#h3
+{
+   text-align: center;
+}
+
+#id
+{
+    text-align: center;
+    
+}
+
+#password
+{
+    text-align: center;
+}
+
+#wrapper
+{
+	padding-top: 2%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+
+#contents
+{
+    border: 1px solid gray;
+    width: 370px;
+    float: left;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+#findPassword, #findId
+{
+		background-color: #EEC0DB;
+	    border: none;
+	    border-radius: 3px;
+	    height: 33px;
+	    width: 200px;
+	    text-align: center;
+	    color: white;
+	    cursor: pointer;
+	    font-size: 14px;
+}
+
+#password
+{
+    background-color: blue;
+    width: 170px;
+    color: white;
+}

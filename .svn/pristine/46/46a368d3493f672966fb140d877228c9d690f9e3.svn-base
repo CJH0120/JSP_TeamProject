@@ -1,0 +1,91 @@
+body{
+	margin: 0 auto;
+}
+#all_container{
+	margin-top: 18%;
+	margin: 15% 10% 10% 10%;
+}
+
+.pageNavigation{
+    font-size: 15px;
+}
+
+.pageNavigation .location span, a{
+    text-decoration: none;
+    color: black;
+}
+.location{
+    border-bottom: 1px solid black;
+}
+
+li#myinfo_mod, li#myinfo_pw, li#myinfo_resign{
+    display: inline-block;
+    padding: 1%
+}
+
+ul.myinfo{
+    border-top: 3px solid black;
+    border-bottom: 1px solid #ccc;
+    margin: 0 0 5%;
+    padding: 0;
+}
+
+li#myinfo_mod a, li#myinfo_pw a, li#myinfo_resign a{
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.top_title{
+    font-size: 30px;
+    margin: 5%;
+    text-align: center;
+}
+
+.c_header{
+    padding-bottom: 3%;
+    border-bottom: 1px solid #ccc;
+}
+
+div.c_header h2{
+    font-size: 20px;
+    color: black;
+}
+
+.c_header .contxt {
+    padding-top: 10px;
+    letter-spacing: -1px;
+    color: #666;
+}
+
+h3.h_dropout{
+    font-size: 14px;
+    color: black;
+}
+
+.section_delete{
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 3%
+}
+
+.dropout_dsc{
+	font-size: 12px;
+	padding-left: 26px;
+}
+
+.btn_area{
+    text-align: center;
+}
+
+.btn_model{
+    background-color: #EEC0DB;
+    border-color: #EEC0DB;
+    padding: 2px 4%;
+    font-size: 16px;
+}
+
+.agree_area{
+	text-align: center;
+	padding-top: 3%
+}
+

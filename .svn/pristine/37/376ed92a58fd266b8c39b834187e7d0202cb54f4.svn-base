@@ -1,0 +1,191 @@
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.protect_board_list {
+    border-collapse: collapse;
+}
+
+.title{
+    text-align: center;
+    font-size: 25px;
+}
+
+.pageNavigation{
+    text-align: left;
+/*     margin-right: 10%;
+    margin-left: 10%; */
+}
+.pageNavigation .location span, a{
+    text-decoration: none;
+    color: black;
+} 
+
+.location{
+	border-bottom: 1px solid black;
+	margin-bottom: 10%;
+}
+
+caption {
+    display: none;
+}
+
+
+.board_list_wrap {
+    margin: 15% auto;
+    width: 80%;
+    padding: 50px;
+}
+
+
+.protect_board_list {
+    width: 100%;
+   margin-top: 0px;
+    border-top: 2px solid #EEC0DB;
+}
+
+.protect_board_tr {
+    border-bottom: 1px solid #EEC0DB;
+}
+
+.protect_board_th,
+.protect_board_td {
+    padding: 10px;
+    font-size: 14px;
+}
+
+.protect_board_td{
+    text-align: center;
+}
+
+.protect_board_list #tit {
+    text-align: left;
+}
+
+.protect_board_list #tit:hover {
+    text-decoration: underline;
+}
+
+.board_list_wrap .under_num {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0;
+}
+.board_list_wrap .under_num a {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 100px;
+    font-size: 12px;
+}
+.board_list_wrap .under_num a:first-child {
+    margin-left: 0;
+}
+
+.board_list_wrap .under_num a.bt {
+    border: 1px solid #eee;
+    background: #eee;
+}
+
+.board_list_wrap .under_num a.num {
+    border: 1px solid #EEC0DB;
+    font-weight: 600;
+    color: #EEC0DB;
+}
+
+.board_list_wrap .under_num a.num.on {
+    background: #EEC0DB;
+    color: white;
+}
+ .under_num{
+	display: flex;
+	justify-content: center;
+
+ }
+
+#protect_ing_btn{
+    width: 90px;
+    height: 25px;
+    color: black;
+    border: none;
+    background-color: inherit;
+    align-items: center;
+}
+#protect_find_btn{
+    width: 90px;
+    height: 25px;
+    color: rgb(185, 0, 108);
+    background-color: inherit;
+    align-items: center;
+}
+
+/* 공지 */
+
+
+.protect_notice_list {
+    width: 100%;
+    border-top: 2px solid green;
+}
+
+.protect_notice_tr {
+    border-bottom: 1px solid #ccc;
+}
+
+.protect_notice_th,
+.protect_notice_td {
+    padding: 10px;
+    font-size: 14px;
+}
+
+.protect_notice_td{
+    text-align: center;
+}
+
+.protect_notice_list #tit {
+    text-align: left;
+}
+
+.protect_notice_tr #tit:hover {
+  
+    text-decoration: underline ;
+}
+#protect_notice_btn{
+    width: 90px;
+    height: 25px;
+    border: none;
+    color: red;
+    background-color: inherit;
+    align-items: center;
+}
+
+#writebtn{
+    width:50px;
+    height:30px;
+	text-align: center;
+	font-size: 13px;
+	border: none;
+	background-color: #EEC0DB;
+    border-radius:5px;
+	color: white;
+	
+}
+
+
+
+#topbtn{
+     width:50px;
+     height:30px;
+     font-size: 13px;
+    border: none;
+    cursor: pointer;
+     background-color: #EEC0DB ;
+     color: white;
+    border-radius:5px;
+}
+
+#title{
+    text-align: left;
+}

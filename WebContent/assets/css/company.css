@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+body{
+    margin: 0 auto;
+}
+
+#wrap{
+    margin: 13% 10% auto;
+    padding-bottom: 5%;
+}
+
+div.location{
+	text-align: left;
+    border-bottom: 1px solid black;
+    padding-bottom: 1%;
+}
+
+.pageNavigation .location span, a{
+    text-decoration: none;
+    color: black;
+}
+
+.page_tite{
+    text-align: center;
+    font-size: 50px;
+    padding: 80px 0 30px;
+}
+p.page_info{
+    font-size: 20px;
+    text-align: center;
+    padding: 0 0 25px;
+}
+.content_img{
+    text-align: center;
+}

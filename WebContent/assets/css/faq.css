@@ -1,0 +1,164 @@
+body {
+    margin: 0 auto !important;
+    padding: 0;
+}
+
+#contentsWrap {
+    margin-top: 7%;
+    min-height: 700px;
+    padding-top: 120px;
+}
+
+#contents {
+    position: relative;
+    max-width: 1060px;
+    min-width: 1024px;
+    margin: 0 auto;
+    padding-bottom: 80px;
+}
+
+#contents .location {
+    right: 0;
+    height: 15px;
+}
+
+div.location a{
+    cursor:pointer;
+}
+
+div.location{
+    border-bottom: 1px solid black;
+    padding-bottom: 1%;
+}
+
+a {
+    text-decoration: none;
+    color: #555;
+}
+.location_header{
+    margin-top: 4%;
+}
+.location_header p{
+    text-align: center;
+    font-size: 20px;
+}
+
+h1{
+    text-align: center;
+}
+.location_header h1{
+    font-size: 48px;
+}
+.search_area{
+    text-align: center;
+    position: relative;
+}
+.center_wrap{
+    padding-top: 33px;
+}
+#search_text_val{
+    width: 543px;
+    height: 50px;
+    border: 3px solid black;
+    font-size: 19px;
+    padding-left: 1%;
+}
+.btn{
+    top: 0;
+    margin: 0;
+    position: absolute;
+    height: 58px;
+    width: 120px;
+    border: 3px solid black;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+.qna_category_wrap{
+    padding-top: 60px;
+}
+.qna_category_box {
+    overflow: hidden;
+    background-color: #f8f8f8;
+}
+.qna_category_box .listFirst {
+    float: left;
+    width: 20%;
+    padding: 30px 0;
+}
+
+.qna_category_box .category .list dt {
+    position: relative;
+    padding: 52px 26px 30px 0;
+    font-size: 18px;
+    color: #222;
+    line-height: 19px;
+    text-align: center;
+}
+
+.category{
+    font-size: 16px;
+    top: 20px;
+}
+
+ul, ol, dl {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.button{
+    width: 80%;
+    font-size: 16px;
+    text-align: left;
+    line-height: 1.5;
+    word-break: break-all;
+    white-space: normal;
+    display: inline-block;
+    float: right;
+    border: none;
+    background-color: white;
+    font-size: 16px;
+    position: relative;
+}
+span.underbtn{
+	position: absolute;
+	right: 0;
+}
+
+.question_wrap{
+    position: relative;
+    padding: 18px 20px 18px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.cont .icon{
+    position: absolute;
+    top: 18px;
+    left: 55px;
+}
+.answer p{
+    margin: 0;
+    padding: 0;
+}
+
+.search_area{
+    padding-bottom: 50px;
+    left: -29px;
+}
+
+#top{
+    border-top: solid 1px black;
+}
+
+.answer_wrap{
+    display: none;
+    position: relative;
+    padding: 18px 20px 23px 90px;
+    zoom: 1;
+}
+
+img#qwe{
+   
+    transition: transform 0.4s;
+}

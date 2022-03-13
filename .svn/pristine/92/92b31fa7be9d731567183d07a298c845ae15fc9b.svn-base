@@ -1,0 +1,137 @@
+@charset "UTF-8";
+body{
+    margin: 0 auto;
+}
+
+ul.myinfo{
+    list-style: none;
+    padding: 0%;
+}
+
+#body_wrap{
+    margin: 15% 10% 10% 10%;
+}
+
+.top_title{
+    font-size: 30px;
+}
+
+div.top_title h2{
+    margin: 5%;
+    text-align: center;
+}
+.top_title h{
+    display: inline-block;
+}
+.pageNavigation{
+    font-size: 15px;
+}
+
+.pageNavigation .location span, a{
+    text-decoration: none;
+    color: black;
+}
+.location{
+    border-bottom: 1px solid black;
+}
+
+li#myinfo_mod, li#myinfo_pw, li#myinfo_resign{
+    display: inline-block;
+    padding: 1%
+    
+}
+
+ul.myinfo{
+    border-top: 3px solid black;
+    border-bottom: 1px solid #ccc;
+    margin: 0 0 5%;
+}
+
+li#myinfo_mod a, li#myinfo_pw a, li#myinfo_resign a{
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+/* li#myinfo_mod a{
+	border-left: 1px solid #ccc;  
+} */
+
+.info_tbl{
+    border-top: 3px solid black;
+}
+
+table{
+    width: 100%;
+}
+
+tbody th{
+    background: #f9f9f9;
+}
+
+tr th, td{
+    border-bottom: 1px solid #ccc;
+}
+
+th p{
+    font-size: 20px;
+}
+
+a.btn_change{
+    border: 1px solid #ccc;
+}
+input{
+    height: 22px;
+    border-color: #ccc;
+}
+
+.select_mail{
+    height: 27px;
+    width: 135px;
+}
+
+.add_wrap{
+    padding: 1% 0 1% 0;
+}
+
+#zipcode_btn{
+  border: 1px solid #ccc;  
+}
+.mem_zipcode{
+    width: 10%;
+}
+#mem_add1, #mem_add2{
+    width: 25%;
+}
+
+.submit_btn_wrap{
+    padding-top: 3%;
+    text-align: center;
+}
+
+.submit_btn{
+    background-color: #EEC0DB;
+    border-color: #EEC0DB;
+    padding: 0 3%;
+    font-size: 16px;
+}
+
+.submit_btn_cancel{
+    background-color: #EEC0DB;
+    border-color: #EEC0DB;
+    padding: 0 3%;
+    font-size: 16px;
+}
+
+.necessary{
+	color: red;	
+}
+
+td{
+	padding: 1%
+}
+
+.info_txt{
+	font-size: 11px;
+    color: #999;
+}

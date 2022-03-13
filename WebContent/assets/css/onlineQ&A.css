@@ -1,0 +1,212 @@
+
+body{
+	margin: 0 auto;
+}
+
+.page-header{
+    margin: 10%;
+}
+
+.img{
+    background: url('http://www.costar.co.kr/img_up/shop_pds/costa20/design/sub_img/banner_05.jpg')
+    no-repeat;
+    background-size: 100%;
+    width: 100%;
+    height: 300px;
+    margin-top: 10%;
+}
+
+.pageNavigation{
+    text-align: left;
+    margin-right: 10%;
+    margin-left: 10%;
+    margin: 5% 15% 0 15%;
+}
+
+.pageNavigation .location span, a{
+    text-decoration: none;
+    color: black;
+}
+
+strong.tit{
+    font-size: 20px;
+}
+
+div.location{
+    border-bottom: 1px solid black;
+}
+
+
+div.inner_txt h2,p{
+    margin-left: 30px;
+}
+
+div div.inner_txt{
+    padding-top: 25px;
+    color: white;
+    font-size: 30px;
+}
+
+#banner{
+    margin-top: 10%;
+}
+
+form.wrap{
+    margin: 5% 15% 0 15%;
+}
+
+div strong.tit{
+    display: block;
+    position: relative;
+    margin-bottom: 1%;
+}
+div strong span{
+    position: absolute;
+    right: 0;
+    
+}
+
+div strong span b{
+    color: red;
+}
+
+.info{
+    border: none;
+    border-top: solid 1px black;
+    border-collapse : collapse;
+    width: 100%;
+}
+.col1, .col2{
+    border-bottom: solid 1px #ccc;
+}
+table tr td.col1{
+    width: 10;
+    height: 50px;
+    text-align: center;
+}
+
+table tr td label.userName::before{
+    content: '*';
+    color: red;
+}
+
+table tr td label.userEmail::before{
+    content: '*';
+    color: red;
+}
+
+table tr td label.userContent::before{
+    content: '*';
+    color: red;
+    border-radius: 5px;
+}
+
+
+table tr td.col2{
+    width: 80%;
+    position: relative;
+}
+
+#list2{
+	position: absolute;
+	left: 376px;
+	top: 18px;
+}
+
+
+
+table tr td.col2 userName{
+    height: 20px;
+    margin: 1%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#userName.input, #userEmail.input, input.input{
+	border: 1px solid #ccc;
+	height: 22px;
+}
+table tr td.col2 input:focus{
+    border: none;
+    outline: 1px solid #ccc;
+}
+
+td textarea{
+    resize: none;
+    width: 80%;
+    height: 100px;
+    margin-top: 1%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+textarea.agree_privacy2{
+	outline: 1px solid #ccc;
+}
+
+td textarea:focus{
+    border: none;
+    outline: 1px solid #ccc;
+}
+
+
+.selectset{
+    display: inline-block;
+}
+.emailSelect{
+    width: 180px;
+    height: 26px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.emailSelect:focus{
+    border: none;
+    outline: 1px solid #ccc;
+}
+
+.color_red{
+    color: red;
+}
+
+.check_wrap{
+    padding-top: 3%;
+}
+.agree_privacy2{
+    width: 100%;
+    resize: none;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.agree_privacy:focus{
+    border: none;
+    outline: 1px solid #ccc;
+}
+
+.agree_check{
+    margin-left: 0;
+    font-size: 20px;
+}
+.input_check{
+    zoom: 1.2;
+}
+div.btn{
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 10%;
+}
+.submit_btn{
+    width: 10%;
+    height: 50px;
+    color: white;
+    background-color: #EEC0DB;
+    border: 1px solid #EEC0DB;
+    /* 수정전 색깔 */
+    /* border: 1px solid #FFBE0A;  */
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 20px;
+    color: white;
+}
+

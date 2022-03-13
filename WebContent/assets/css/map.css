@@ -1,0 +1,114 @@
+
+.Header{
+    position: fixed;
+    height: 594px;
+    top: 270px;
+    width: 15%;
+    padding: 1%;
+    border: 1px solid black;
+    z-index: 1000;
+    background-color: antiquewhite;
+}
+
+.titleName{
+    font-size: 15px;
+    color: black;
+}
+#search_keyword{
+    border: none;
+    height: 30px;
+    background-color: white;
+    border-radius: 5%;
+    padding: 0;
+    margin: 0;
+}
+.search_input{
+    float: left;
+    width: 162px;
+    height: 86%;
+    border: none;
+    outline: none;
+    padding-left: 2%;
+}
+.btn_search_wrap{
+    float: left;
+    border: none;
+    width: 10%;
+    height: 100%;
+    background-color: white;
+}
+.btn_search{
+    background: url(https://cdn.discordapp.com/attachments/947836644889870356/949257669959618580/35434bb8efd41470.png)
+    center no-repeat ;
+    width: 30px;
+    height: 30px;
+    padding: 0px;
+    margin: 0px;
+    border: 0;
+    cursor: pointer;
+    background-size: cover;
+}
+/* #map{
+    z-index: -1;
+    position: relative;
+}
+
+#search_wrap{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 360px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+    max-height: calc(100% - 40px);
+    margin-top: 15%;
+}
+.search_top{
+    padding: 10px;
+    background-color: white;
+    z-index: 1000;
+    font-size: 15px;
+}
+.search_input_line{
+    flex: 1 1 0%;
+    border: 1px solid rgb(250, 136, 11);
+    border-radius: 4px;
+    height: 30px;
+    box-sizing: border-box;
+}
+.input-wrap{
+    float: left;
+    width: 285px;
+    padding: 2px 5px 2px 2px;
+    position: relative;
+}
+.input-wrap input{
+    width: 100%;
+    padding-left: 6px;
+    border: none;
+    outline: none;
+}
+
+.btn_search{
+    width: 30px;
+    height: 30px;
+    background: url();
+}
+.btn_search_wrap{
+    float: right;
+    background-color: rgb(250, 136, 11);
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+}
+.btn_search{
+    width: 30px;
+    height: 30px;
+    background: url(https://cdn.discordapp.com/attachments/947836644889870356/949257669959618580/35434bb8efd41470.png)
+    center no-repeat ;
+    padding: 0px;
+    margin: 0px;
+    border: 0;
+    cursor: pointer;
+    background-size: cover;
+} */

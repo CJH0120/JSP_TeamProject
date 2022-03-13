@@ -1,0 +1,337 @@
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+/* 폰트 적용 존 */
+.header_util{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+ .heaver_nav{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+/*  */
+
+#loginbtn::after{
+    content: "｜";
+  font-size: 20px;
+    line-height: 1px;
+    color: #ddd;
+}
+
+
+#loginbtn{
+   
+    cursor: pointer;
+}
+.header_util {
+    margin-top: 50px;   
+    margin-left: 100px;
+}
+.header_util span a{
+    text-decoration: none;
+    color: black;
+   
+  
+}
+
+.in_page_wrap{
+    
+    background: transparent;
+
+    padding: 0;
+    margin: 0;
+}
+
+
+  .header_color{
+    background-color:white;
+    border-bottom: 1px solid #ddd;
+ } 
+
+div.header_fixed{
+    
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: 0 auto;
+    height: 10px;
+    width: 100%;
+    z-index: 900;
+    text-align: center;
+ 
+}
+div.header_flex{
+    display: flex;
+	background-color:white;
+    width: 100%;
+    height: 80px;
+    
+    margin: 0 auto;
+    
+    justify-content: space-around;
+    align-items: center;
+}
+
+#header_btn{
+    border: none;
+    background-color: #fff;
+}
+
+.nav_header{
+   position: absolute;
+    background-color: #fff;
+   
+    width: 100%;
+    margin: 0 auto;
+/*    font-weight: 500; */
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    padding: 12px 0px;
+    border: none;
+    margin-bottom: 0;
+    cursor: pointer;
+    
+}
+
+.nav_header_li{
+
+    align-items: center;
+    justify-items: center;
+    cursor: pointer;    
+    width: 200px;
+    height: 50px;
+
+    padding: 0 10px ;
+  
+ 
+}
+.nav_header_li span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     font-size: 20px;
+    
+   
+    width: 200px;
+    height: 50px;
+}
+.nav_sub_header{
+
+  background-color:white;
+    list-style: none;
+    padding-left: 0;
+    display: none;
+   
+}
+
+/* #cat ::before{
+content: url("https://minipetmall.co.kr/upload/goods_data/222022550210652.jpg");
+position: absolute;
+top: 0;
+background-size: 50%;
+width: 50px;
+height: 50px;
+left: 0;
+} */
+
+/* .heaver_nav{
+    border-bottom: 1px solid black;
+    position: relative;
+    display: flex;
+    max-width: 1920px;
+    min-width: 1440px;
+    width: 100%;
+    height: 90px;
+    margin: 0 auto;
+    padding: 0 3%;
+    background: #fff;
+    z-index: 40;
+} */
+
+
+.nav_sub_header_li{
+    justify-items: center;
+ 
+    
+    /* margin: 0 auto; */
+    padding-top: 10px;
+    height: 50px;
+}
+.nav_header_li a{
+    text-decoration: none;
+    color: black;
+}
+.nav_sub_header_li a{
+  
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+ }
+
+
+ .main_page_banner_text{
+     position: absolute;
+     top: 150px;
+     left: 90px;
+ }
+
+
+ .nav_header_li span:hover{
+     
+     color:  #EEC0DB;
+     border-radius: 1rem;
+ }
+.nav_sub_header_li :hover{
+      color:  #EEC0DB;
+    border-radius: 1rem;
+}
+.media_btn{
+  
+    display: none;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    margin-bottom: 50px;
+    
+   
+
+}
+
+.threeline{
+    
+    width: 100%;
+    height: 2px;
+    border-radius: 1px;
+    background-color: #333;
+    margin-top: 5px;
+    
+}
+
+
+
+
+
+
+
+
+
+/* 모바일 앱 */
+
+.mobile_menu{
+  display: none;
+    overflow: auto;
+    padding: 0;
+    margin: 0;
+   
+    top: 0;
+    left: 0;
+    
+    width: 100%;
+    height: 100%;
+    background-color:white;
+    position: fixed;
+    
+    z-index: 901;
+   
+}
+
+.mobil_header_ul{
+
+    text-align: center;
+    list-style: none;
+   padding-left: 0;
+    font-size: 25px;
+ 
+    height: 80px;
+    margin-top: 40px;
+    color: black;
+}
+.mobil_sub_ul{
+  	
+    list-style: none;
+    padding: 0;
+    padding-top: 30px;
+ 
+   
+    
+}
+.mobil_sub_li{
+    
+  
+   
+    margin: 0 auto;
+   text-align: left;
+    margin-left: 40px;
+    align-items: center;
+    font-size: 20px;
+    height: 40px;
+    
+
+   
+}
+.mobil_header_li{
+   
+   
+    padding: 0;
+    margin: 0 ;
+    text-align: center;
+}
+
+.mobil_header_li_span{
+    border-bottom: 1px solid #EEC0DB;
+   
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    padding: 0 20px;  
+    margin: 0 auto;
+    align-items: center;
+    height: 70px;
+}
+
+
+
+
+.login_header_text{
+	text-decoration: none;
+	color : black;
+}
+
+
+/* 미디어 쿼리 */
+@media screen and (min-width:992px) and (max-width:1100px)  {
+  .nav_header{
+      width: 1024px;
+    
+  }
+}
+@media screen and (max-width:991px)  {
+.nav_header{
+        display: none;
+ }
+ /* ㅇㅇ */
+.header_util_span{
+       display: none;
+ }
+
+ div.header_flex{
+     justify-content: space-around;
+    
+}
+.media_btn{
+    display: block;
+}
+ 
+}
+

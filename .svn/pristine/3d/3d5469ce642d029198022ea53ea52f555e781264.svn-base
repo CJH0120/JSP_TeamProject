@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동물자랑 게시판</title>
+    <link rel="stylesheet" type="text/css" href="../../../assets/css/main.css">
+<style>
+    
+ @font-face {
+    font-family: 'HSYuji-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/HSYuji-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+body{
+    font-family: 'HSYuji-Regular';
+    padding: 0;
+    margin: 0;
+}
+/* div#container{
+    position: relative;
+    padding: 30px;
+    border: 1px solid gray;
+}
+div#text{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+} */
+*{
+    font-family: 'Varela Round', sans-serif;
+}
+div,img{
+    width: 300px;
+    height: 230px;
+}
+.cell{
+    padding: 5px;
+    list-style: none;
+    width: 350px; 
+    margin-right: 30px;
+    margin-top: 30px;
+    display: table-cell;
+    /* display: flex;
+    justify-content: center; */
+}
+#table{
+    margin: 399px;
+    justify-content: space-evenly;
+    display: table;
+    border: 3px soild rgb(71, 54, 54);
+    width:100%;
+}
+.row{
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    display: table-row;
+}
+#bigContainer{
+    margin: 0 auto;
+}
+#content{
+    position: relative;
+    margin-bottom: 300px;
+    margin-top: 100px;
+    border: 1px gray;
+    height: 50px;
+}
+.petsImg{
+    position: absolute;
+    top: -5px;
+    left: 320px;
+}
+button img{
+    width: 20px;
+    height: 20px;
+}
+button{ 
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    display: inline;
+}
+.petsText, .petsImg{
+    margin-left: 200px;
+}
+hr {
+    background-color: yellow;
+    height: 3px;
+    width: 1230px;    
+}
+#hr{
+    height: 80px;
+}
+.paging{
+        width: 345px;
+        text-align: center;
+        margin-left: 825px;
+
+      }
+      .paging a{
+         text-decoration-line: none;
+         display: inline-block;
+         font-weight: 400;
+         width: 40px;
+         height: 40px;
+         line-height: 40px;
+         margin: 0;
+         box-sizing: border-box;
+         color: #333;
+      }
+</style>
+</head>
+<body>
+    <div class="main_page_wrap">
+        <div id="header_wrap" >
+            <div class="header_fixed">
+                <div class="header_flex">
+                   <!--시작-->
+                    <div class="header_util"><span><a href="./member/login.html">로그인</a> <a href="#">회원가입</a></span></div>
+                    <div class="header_logo"><h1><a>로고자리</a></h1></div>
+
+                    <div class="header_search"><input type="search" name="#"></div>
+                </div> 
+            <!--헤더 로그인 회원가입 검색 버튼  -->
+            <nav class="heaver_nav">
+              
+
+                <ul class="nav_header">
+                    <li class="nav_header_li" ><span>신고 및 제보</span>
+                        <ul class="nav_sub_header" >
+                            <li class="nav_sub_header_li"  id="cat"> <a href="https://www.naver.com/">목격제보</a></li>
+                            <li class="nav_sub_header_li"> <a href="https://www.naver.com/">보호</a></li>
+                            <!-- <li class="nav_sub_header_li"> <a href="https://www.naver.com/">test1</a></li> -->
+                        </ul>
+                    </li>
+
+                    <li class="nav_header_li"><span>보호중(조회)
+                    </span>
+                        <ul class="nav_sub_header"> 
+                            <li class="nav_sub_header_li" ><a>유기동물 조회</a></li>
+                            <li class="nav_sub_header_li" ><a>보호소센터 조회</a></li>
+                            <!-- <li class="nav_sub_header_li" ><a>33</li> -->
+                        </ul>
+                    </li>
+
+                    <li class="nav_header_li"><span>커뮤니티</span>
+                        <ul class="nav_sub_header">
+                            <li class="nav_sub_header_li"><a>후기</a></li>
+                            <li class="nav_sub_header_li"><a>동물자랑</a></li>
+                            <!-- <li class="nav_sub_header_li"><a></a>33</li> -->
+                        </ul>
+                    </li>
+
+                    <li class="nav_header_li"><span>함께해요</span>
+                        <ul class="nav_sub_header">
+                            <li class="nav_sub_header_li"><a>봉사</a></li>
+                            <li class="nav_sub_header_li"><a>후원(미정)</a></li>
+                            <!-- <li class="nav_sub_header_li">33</li> -->
+                        </ul>
+                    </li>
+
+                    <li class="nav_header_li"><span>Q&A
+                    </span>
+                        <ul class="nav_sub_header">
+                            <li class="nav_sub_header_li"><a>문의사항</a></li>
+                            <li class="nav_sub_header_li"><a>자주하는 질문</a></li>
+                            <!-- <li class="nav_sub_header_li">33</li> -->
+                        </ul>
+                    </li>
+                    <li class="nav_header_li"><span>발견위치
+                    </span>
+                        <ul class="nav_sub_header">
+                            <li class="nav_sub_header_li"><a>맵핑</a></li>
+                            <li class="nav_sub_header_li"><a>자주하는 질문</a></li>
+                            <!-- <li class="nav_sub_header_li"><a>33</a></li> -->
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            </div>
+
+            <!--동물자랑 게시판-->
+<div id="table">
+    <div id="content">
+        <div class="petsText">
+            <h3>마이펫자랑하기</h3>
+            <p>소중한 반려동물의 사랑스러움을 마음껏 자랑해주세요!</p>
+        </div>
+        <div class="petsImg">
+            <img src="../../../images/pets.jpg">
+        </div>
+    </div>
+    <div id="hr">
+    <hr>
+    </div>
+    <div class="row">
+        <div class="cell">
+            <div>
+                <a href="#"><img src="../../../images/tempPhoto.jpg"></a>
+            </div>
+            <div id="content">
+                <p>우리강아지에용</p>
+                <p>여기는 아이디와 날짜</p>
+                <button type="submit"><img src="../../../images/like.png">Like</button><span>눌린횟수</span>  
+            </div>
+        </div>
+        <div class="cell">
+            <div>
+                <a href="#"><img src="../../../images/tempPhoto.jpg"></a>
+            </div>
+            <div id="content">
+                <p class="">우리강아지에용</p>
+                <p>여기는 아이디와 날짜</p>
+                <button type="submit"><img src="../../../images/like.png">Like</button><span>눌린횟수</span>  
+            </div>
+         </div>
+        <div class="cell">
+            <div>
+                <a href="#"><img src="../../../images/tempPhoto.jpg"></a>
+            </div>
+            <div id="content">
+                <p>우리강아지에용</p>
+                <p>여기는 아이디와 날짜</p>
+                <button type="submit"><img src="../../../images/like.png">Like</button><span>눌린횟수</span>  
+            </div>
+        </div>
+        <div class="cell">
+            <div>
+                <a href="#"><img src="../../../images/tempPhoto.jpg"></a>
+            </div>
+            <div id="content">
+                <p>우리강아지에용</p>
+                <p>여기는 아이디와 날짜</p>
+                <button type="submit"><img src="../../../images/like.png">Like</button><span>눌린횟수</span>  
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="cell">
+            <div>
+                <img src="../../../images/tempPhoto.jpg">
+            </div>
+            <div id="content">
+                <p>우리강아지에용</p>
+                <p>여기는 아이디와 날짜</p>
+                <button type="submit"><img src="../../../images/like.png">Like</button><span>눌린횟수</span>  
+            </div>
+        </div>
+        <div class="cell">
+            <div>
+                <img src="../../../images/tempPhoto.jpg">
+            </div>
+            <div id="content">
+                <p>우리강아지에용</p>
+                <p>여기는 아이디와 날짜</p>           
+                <button type="submit"><img src="../../../images/like.png">Like</button><span>눌린횟수</span>    
+            </div>
+        </div>
+        <div class="cell">
+            <div>
+                <img src="../../../images/tempPhoto.jpg">
+            </div>
+            <div id="content">
+                <p>우리강아지에용</p>
+                <p>여기는 아이디와 날짜</p>
+                <button type="submit"><img src="../../../images/like.png">Like</button><span>눌린횟수</span>  
+            </div>
+        </div>
+        <div class="cell">
+            <div>
+                <img src="../../../images/tempPhoto.jpg">
+            </div>
+            <div id="content">
+                <p>우리강아지에용</p>
+                <p>여기는 아이디와 날짜</p>
+                <button type="submit"><img src="../../../images/like.png">Like</button><span>눌린횟수</span>  
+            </div>
+        </div>
+    </div>
+</div>
+<!--페이징 -->
+<div class="paging">
+    <a href="#" class="page" onclick="">1</a>
+    <a href="#" class="page" onclick="">2</a>
+    <a href="#" class="page" onclick="">3</a>
+    <a href="#" class="page" onclick="">4</a>
+    <a href="#" class="page" onclick="">5</a>
+    <a href="#" class="page" onclick="">6</a>
+    <a href="#" class="page" onclick="">7</a>
+ </div>
+    
+
+</body>
+<script type="text/javascript" src="/help_pet/team_project/WebContent/assets/js/index.js"></script>
+<script>
+    var nowpage = 3; //현재 페이지를 넣으면 색상변경
+    var pages = document.querySelectorAll('a.page');
+    pages.forEach(p =>{
+       if(p.innerHTML == nowpage){
+       console.log(p)
+       p.style.color = "white";
+       p.style.textDecoration = "underline";
+       p.style.textUnderlinePosition = "under";
+       p.style.background = "#ffb300";
+ 
+       }
+    })
+ 
+ </script>
+</html>

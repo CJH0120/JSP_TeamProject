@@ -1,0 +1,135 @@
+#model_back{
+    display: none;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.8);
+   top: 0;
+   left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+  
+}
+.login_wrap{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+        width: 450px;
+    height: 600px;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 1500;
+    background-color: white;
+    border-radius: 1rem;
+    border: 5px solid steelblue;
+}
+.login_header_text_wrap{
+    text-align: center;
+    margin: 0 auto;
+    padding-top:30px;
+}
+.login_header_text{
+    margin-top: 40px;
+    font-size: 35px;
+    font-weight: bold;
+    position: relative;
+}
+#login_header_close{
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 15px;
+    font-weight: bold;
+}
+#LoginForm{
+    margin: 0 auto;
+    box-sizing: border-box;
+    width: 85%;
+}
+
+.input_box{
+    position: relative;
+    text-align: left;
+    
+    padding-top: 20px;
+    margin-top: 40px;
+}
+.input_box_label{
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 1.2;
+    color: #999;
+}
+
+.input_box_input{
+    padding-top: 20px;
+    height: auto;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    width: 100%;
+    border: 0;
+    padding: 0;
+    outline: none;
+    border-bottom: 1px solid steelblue;
+}
+.left_util_area{
+    display: flex;
+    position: relative;
+    margin-top: 20px;
+    
+    text-align: left;
+}
+
+.right_util_area{
+   
+    position: relative;
+    margin-top: 20px;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+}
+.find_idpw{
+    text-decoration: none;
+    color: black;
+    
+}
+.join_btn{
+   
+    text-decoration: none;
+    color: black;
+    
+    
+}
+.login_btn_area{
+position: relative;
+margin-top: 20px;
+width: 100%;
+height: auto;
+display: flex;
+justify-content: space-between;
+margin-bottom: 20px;
+
+}
+.user_login{
+height: 50px;
+ width: 180px;
+ padding: 0 10px;
+}
+#user_login{
+    border-radius: 5px;
+    border: 1px solid steelblue;
+    background-color: white;
+    
+}
