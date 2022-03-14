@@ -9,6 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.helpPet.action.ActionForward;
+import com.helpPet.app.board.boardAdoptReview.dao.AdoptReviewDetailOk;
+import com.helpPet.app.board.boardAdoptReview.dao.AdoptReviewList;
+import com.helpPet.app.board.boardAdoptReview.dao.AdoptReviewWrite;
+import com.helpPet.app.board.boardAdoptReview.dao.AdoptReviewWriteOk;
+import com.helpPet.app.board.boardPetSearch.BoardPetSanctuaryMap;
+import com.helpPet.app.board.boardPetSearch.BoardPetSearchList;
+import com.helpPet.app.board.boardPetSearch.BoardPetSearchViewOk;
 
 public class BoardFrontController extends HttpServlet {
 	@Override
@@ -28,8 +35,30 @@ public class BoardFrontController extends HttpServlet {
 		ActionForward af = null;
 		
 		switch(command) {
-		case "/board/BoardListOk.bo":
-			
+		case "/board/boardPetSearchList.bo":
+			af = new BoardPetSearchList().execute(req, resp);
+			break;
+		case "/board/boardPetSearchViewOk.bo":
+			af = new BoardPetSearchViewOk().execute(req, resp);
+			break;
+		case "/board/boardPetSanctuaryMap.bo":
+			af = new BoardPetSanctuaryMap().execute(req, resp);
+			break;
+		case "/board/AdoptReviewList.bo":
+			af = new AdoptReviewList().execute(req, resp);
+			System.out.println("AdoptReviewList()들어옴");
+			break;
+		case "/board/AdoptReviewDetailOk.bo":
+			af = new AdoptReviewDetailOk().execute(req, resp);
+			System.out.println("AdoptReviewDetailOk()들어옴");
+			break;
+		case "/board/AdoptReviewWrite.bo":
+			af = new AdoptReviewWrite().execute(req, resp);
+			System.out.println("AdoptReviewWrite()들어옴");
+			break;
+		case "/board/AdoptReviewWriteOk.bo":
+			af = new AdoptReviewWriteOk().execute(req, resp);
+			break;
 		}
 		
 		//분기 별 결과를 af에 담았다면 여기로 내려온다.

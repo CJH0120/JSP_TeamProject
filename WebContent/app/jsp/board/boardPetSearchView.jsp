@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 
 
 <!DOCTYPE html>
@@ -118,8 +122,7 @@ hr#psvHr {
 	align-items: center;
 	gap: 15px;
 	margin-bottom: 10px;
-	float: left;
-	margin-right: 8%;
+	margin-right: 4%;
 }
 
 .subText div {
@@ -199,7 +202,7 @@ hr#psvHr {
 
 #imgInNotifiNumber {
 	position: absolute;
-	right: 420px;
+	right: 20%;
 	top: 22px;
 	color: black;
 	opacity: 0.8;
@@ -234,6 +237,7 @@ hr#psvHr {
 	color: #333;
 	line-height: 5px;
 	z-index: 999;
+	display: none;
 }
 
 .infoText p {
@@ -241,9 +245,7 @@ hr#psvHr {
 	line-height: 15px;
 }
 
-.infoTextProtect, .infoTextNotifi, .infoTextFinish {
-	display: none;
-}
+
 
 .spanPos {
 	background: rgba(135, 206, 235, 0.8);
@@ -311,6 +313,7 @@ hr#psvHr {
 .subTextWhrap {
 	margin-bottom: 12%;
 	font-weight: bold;
+	margin-left: 7%;
 }
 
 #petSanctuary {
@@ -327,7 +330,7 @@ hr#psvHr {
 }
 
 #petSanctuary .petSanctuaryWrap .petSanctuaryImg {
-	width: 35%;
+	width: 20%;
 }
 
 .petSanctuaryImg img {
@@ -344,6 +347,7 @@ hr#psvHr {
 	cursor: pointer;
 	text-decoration-line: underline;
 	font-size: 12px;
+	color: #036FB8;
 }
 
 #petSearchViewReply {
@@ -631,6 +635,7 @@ div.psReplyWriteImg img {
 </head>
 
 <body>
+	<c:set var="animal" value="${animal}" />
 	<!-- 헤더 영역 -->
 	<%@ include file="../fix/header.jsp"%>
 
@@ -677,7 +682,7 @@ div.psReplyWriteImg img {
 				<div id="dtimgWharp">
 					<div class="datilImg">
 						<img
-							src="https://cdn.discordapp.com/attachments/485361381575622676/949222386438393906/0E4A955.jpg">
+							src="${animal.getPopfile()}">
 					</div>
 					<div class="datilImg">
 						<img
@@ -690,44 +695,78 @@ div.psReplyWriteImg img {
 				</div>
 				<div id="dtImgTop">
 					<div id="imgInNotifiNumber">
-						<span>[개] 믹스견 · 2022(년생) · 흰색 · 3.5(Kg)</span>&nbsp;&nbsp;<b>|</b>&nbsp;&nbsp;
-						<b>공고번호</b> · <span>서울-송파-2022-00012</span>
+						<span>${animal.getKindCd()} · ${animal.getAge()} · ${animal.getColorCd()} · ${animal.getWeight()}</span>&nbsp;&nbsp;<b>|</b>&nbsp;&nbsp;
+						<b>공고번호</b> · <span>${animal.getNoticeNo()}</span>
 					</div>
 					<div id="dTstatusImg" class="">
 						<!-- 동물 상태에 따른 분기처리를 class를 부여하거나 js에서 해결(api사용하며해결)-->
-						<img
-							src="https://cdn.discordapp.com/attachments/928627976378155068/950354845540417536/299045_sign_error_icon.png">
+									<c:choose>
+										<c:when test="${fn:contains(animal.getProcessState(), '보호중')}">
+											<img
+												src="https://cdn.discordapp.com/attachments/947836644889870356/950366365259284490/check_icon.png">
+										</c:when>
+										<c:when test="${fn:contains(animal.getProcessState(), '공고중')}">
+											<img
+												src="https://cdn.discordapp.com/attachments/947836644889870356/950366365439627264/x_icon.png">
+										</c:when>
+										<c:otherwise>
+											<img
+												src="https://cdn.discordapp.com/attachments/947836644889870356/950366365439627264/x_icon.png">
+										</c:otherwise>
+									</c:choose>
 					</div>
 					<div id="dTgenImgDiv">
-						<img
-							src="https://cdn.discordapp.com/attachments/928627976378155068/950353622816944138/6637750_boy_male_man_sex_icon.png">
+						<c:choose>
+							<c:when test="${animal.getSexCd() eq 'M'}">
+								<img src="https://cdn.discordapp.com/attachments/947836644889870356/950368518442983424/male_icon.png">
+							
+							</c:when>
+							<c:when test="${animal.getSexCd() eq 'F'}">
+								<img src="https://cdn.discordapp.com/attachments/947836644889870356/950368518245863434/female_icon.png">
+							</c:when>
+							<c:otherwise>
+								미상
+							</c:otherwise>
+							</c:choose>
 					</div>
-					<!-- 보호중인 동물 이벤트 div -->
-					<div class="infoTextProtect infoText">
-						<h3>
-							<span class="spanPos">보호중인 동물</span>
-						</h3>
-						<p>
-							<i>보호중인 동물로 현재 입양 가능한 상태입니다.</i>
-						</p>
-					</div>
+
+					<c:choose>
+						<c:when test="${fn:contains(animal.getProcessState(), '보호중')}">
+							<!-- 보호중인 동물 이벤트 div -->
+							<div class="infoTextProtect infoText">
+								<h3>
+									<span class="spanPos">보호중인 동물</span>
+								</h3>
+								<p>
+									<i>보호중인 동물로 현재 입양 가능한 상태입니다.</i>
+								</p>
+							</div>							
+						</c:when>
+						<c:when test="${fn:contains(animal.getProcessState(), '공고중')}">
 					<!-- 공고중인 동물 이벤트 div -->
-					<div class="infoTextNotifi infoText">
-						<h3>
-							<span class="spanPos">공고중인 동물</span>
-						</h3>
-						<p>
-							<i>공고중인 동물로 구조일로 부터 10일 이후에 입양 가능합니다.</i>
-						</p>
-					</div>
-					<div class="infoTextFinish infoText">
-						<h3>
-							<span class="spanNag">보호종료</span>
-						</h3>
-						<p>
-							<i>특정이유(반환, 안락사등)로 보호가 종료된 동물입니다.</i>
-						</p>
-					</div>
+							<div class="infoTextNotifi infoText">
+								<h3>
+									<span class="spanPos">공고중인 동물</span>
+								</h3>
+								<p>
+									<i>공고중인 동물로 구조일로 부터 10일 이후에 입양 가능합니다.</i>
+								</p>
+							</div>
+						</c:when>
+						<c:otherwise>
+							<div class="infoTextFinish infoText">
+								<h3>
+									<span class="spanNag">보호종료</span>
+								</h3>
+								<p>
+									<i>특정이유(반환, 안락사등)로 보호가 종료된 동물입니다.</i>
+								</p>
+							</div>						
+						</c:otherwise>
+					</c:choose>					
+
+
+
 					<!--                              <div class="dtInfo">
                                  <p>[개] 믹스견 · 2022(년생) · 흰색 · 3.5(Kg)</p>
                              </div> -->
@@ -754,13 +793,22 @@ div.psReplyWriteImg img {
 	<div class="scrollSection" id="scrollSection2">
 		<div class="innerCenter">
 			<h1>
-				<span class="psPoint">송파대로8길 17 파인타운9단지</span> 위치에서 발견되었습니다.
+				<span class="psPoint">${animal.getHappenPlace()}</span> 위치에서 발견되었습니다.
 			</h1>
 			<p>지도를 통해 자세한 발견 장소를 확인해 보세요!</p>
+
 		</div>
+
 		<div class="innerWidth">
+
 			<div id="mapWrap">
-				<div id="map" style="width: 100%; height: 550px;"></div>
+				<p id="noMap" style="display: none;  color: red; position: absolute;
+    top: -381px; ">
+					등록된 주소의 정확한 위치를 찾을수 없습니다.
+				</p>
+				<div id="map" style="width: 100%; height: 550px;">
+				</div>
+
 			</div>
 		</div>
 	</div>
@@ -787,7 +835,7 @@ div.psReplyWriteImg img {
 						<div id="notofiDate">
 
 							<div class="js-clock">
-								<span id="test2312"></span>
+								<span ></span>
 							</div>
 
 						</div>
@@ -802,15 +850,30 @@ div.psReplyWriteImg img {
 			<div class="subTextWhrap">
 				<div class="subText">
 					<div>중성화여부</div>
-					<span>미상</span>
+					<!-- 추후에 이미지로 변경  -->
+					<c:choose>
+						<c:when test="${animal.getNeuterYn() eq 'Y'}">
+							<span>O</span>
+						</c:when>
+						<c:when test="${animal.getNeuterYn() eq 'N'}">
+							<span>X</span>
+						</c:when>
+						<c:otherwise>
+							<span>미상</span>
+						</c:otherwise>
+					</c:choose>
 				</div>
 				<div class="subText">
 					<div>기타사항</div>
-					<span>귀티나는 미소왕자,교통사고추정</span>
+					<span>${animal.getSpecialMark()}</span>
 				</div>
 				<div class="subText">
 					<div>구조일</div>
-					<span>2022-02-09</span>
+					<span id="happenDt">
+					<fmt:parseDate value="${animal.getHappenDt()}" var="dateValue" pattern="yyyyMMdd"/>
+					<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd"/>
+					</span> 
+
 				</div>
 			</div>
 		</div>
@@ -832,10 +895,10 @@ div.psReplyWriteImg img {
 					</div>
 					<div class="petSanctuaryInfo">
 						<p>
-							한국동물구조관리협회 | 경기도 양주시 남면 감악산로 63-37 (남면)<a
-								onclick="petSanctuaryMap()">[위치보기]</a>
-						<p>
-						<p>02-2642-9159 | 보호중 15 | 입양완료 7</p>
+							${animal.getCareNm()} | <span id="careAddr">${animal.getCareAddr()}</span>
+							<a onclick="window.open('${pageContext.request.contextPath}/board/boardPetSanctuaryMap.bo?careAddr=${animal.getCareAddr()}', '_blank', 'width=790px, height=540px')">[위치보기]</a>
+						</p>
+						<p>${animal.getCareTel()} | 보호중 15 | 입양완료 7</p>
 					</div>
 				</div>
 			</div>
@@ -847,7 +910,7 @@ div.psReplyWriteImg img {
                 <hr id="psvHr"> -->
 
 			<button class="toSearchList"
-				onclick="location.href='${pageContext.request.contextPath}/app/jsp/board/boardPetSearchList.jsp';">목록으로</button>
+				onclick="location.href='${pageContext.request.contextPath}/board/boardPetSearchList.bo';">목록으로</button>
 		</div>
 	</div>
 
@@ -1009,8 +1072,7 @@ div.psReplyWriteImg img {
 		</div>
 	</div>
 </body>
-<script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e8c046fffe25962d6ea1d0fbd0d4d7cf"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e8c046fffe25962d6ea1d0fbd0d4d7cf&libraries=services"></script>
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 <script>
 
@@ -1018,8 +1080,12 @@ div.psReplyWriteImg img {
     var dTLeft = document.getElementById('dTLeft');
     const datilImgs = document.querySelectorAll('.datilImg');
     const dtimgWharp = document.querySelector('#dtimgWharp');
+    const careAddr = document.querySelector('#careAddr');
   
-    
+  	const psPoint = document.querySelector('.psPoint').innerText;
+  	const happenDt = document.querySelector('#happenDt').innerText;
+  	const noMap = document.querySelector('#noMap');
+  	
     var count = 0;
     var bannerRolCkImgUri ="https://cdn.discordapp.com/attachments/947836644889870356/950428272397803600/bannerRolChoice.png";
     var bannerRolImgUri ="https://cdn.discordapp.com/attachments/947836644889870356/950401078346776616/bannerRol.png";
@@ -1126,10 +1192,48 @@ div.psReplyWriteImg img {
   return false;
 });
 	
+ // 타이머  js
+    const timerContainer=document.querySelector(".js-clock"),
+        timer=timerContainer.querySelector("span");
+
+    function getTime() {
+        // 동물의 구조날자 +10일
+        // 보호기간 Date
+       
+        //console.log(happenDt);
+      //const xmasDay = new Date("2022-03-12:12:00:00+0900"); 
+      const xmasDay = new Date(happenDt+":12:00:00+0900"); 
+        
+      const now=new Date();
+      if(now>xmasDay){
+        timer.innerText='공고기간 종료';
+      }else{
+      const gap=xmasDay-now;
+      const day=Math.floor(gap/(1000*60*60*24)); //일
+      const hours=Math.floor((gap/(1000*60*60))%24); //시
+      const minutes=Math.floor((gap/(1000*60)%60)); //분
+      const seconds=Math.floor((gap/1000)%60); //초
+    //   timer.innerHTML=`${day}  ${hours} ${minutes} ${seconds} `;
+        var hoursChange = hours < 10 ? "0"+hours : hours;
+        var minutesChange  = minutes < 10 ? "0"+minutes : minutes;
+        var secondsChange  = seconds < 10 ? "0"+seconds : seconds;
+        timer.innerHTML="-"+day+"일 <b class='timeFont'>"+hoursChange+":"+minutesChange+":"+secondsChange+"</b>";
+
+
+    //   7일&nbsp;&nbsp<b>20:23:10</b>
+      }
+    }
+
+    function init() {
+        getTime();
+        setInterval(getTime,1000);
+    }
+    init();
+    
     
     // 위치정보를 보호소 지도 페이지에 넘겨줘야함
     function petSanctuaryMap() {
-    	 window.open("boardPetSanctuaryMap.jsp", "_blank", "width=790px, height=540px");
+    	 window.open("${pageContext.request.contextPath}/board/boardPetSanctuaryMap.bo?careAddr=${animal.getCareAddr()}}, '_blank', 'width=790px, height=540px'");
 	} 
 
     //동물 상태에 따른 분기처리를 class를 부여하거나 js에서 해결(api사용하며해결)
@@ -1138,11 +1242,11 @@ div.psReplyWriteImg img {
 
         // $('.infoTextProtect').css('display','block');
         // $('.infoTextNotifi').css('display','block');
-        $('.infoTextFinish').css('display','block');
+        $('.infoText').css('display','block');
     },function(){
         // $('.infoTextProtect').css('display','none');
         // $('.infoTextNotifi').css('display','none');
-        $('.infoTextFinish').css('display','none');
+        $('.infoText').css('display','none');
        
     })  
 
@@ -1189,14 +1293,44 @@ div.psReplyWriteImg img {
 
     
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+//주소-좌표 변환 객체를 생성합니다
+var geocoder = new kakao.maps.services.Geocoder();
+//주소로 좌표를 검색합니다
+geocoder.addressSearch(psPoint, function(result, status) {
 
-// 마커가 표시될 위치입니다 
+    // 정상적으로 검색이 완료됐으면 
+     if (status === kakao.maps.services.Status.OK) {
+
+        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+      //마커가 표시될 위치입니다 
+
+        
+        // 결과값으로 받은 위치를 마커로 표시합니다
+        var marker = new kakao.maps.Marker({
+            map: map,
+            position: coords
+        });
+
+        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+        map.setCenter(coords);
+        marker.setMap(map);
+    }else{
+    	// 좌표생성 실패할 경우
+    	mapContainer.style.display = "none";
+    	noMap.style.display = "block";
+    }
+});    
+
+
+
+/* // 마커가 표시될 위치입니다 
 var markerPosition  = new kakao.maps.LatLng(37.4781913, 127.128718); 
 
 // 마커를 생성합니다
 var marker = new kakao.maps.Marker({
     position: markerPosition
-});
+}); */
 //일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
 var mapTypeControl = new kakao.maps.MapTypeControl();
 
@@ -1209,46 +1343,12 @@ var zoomControl = new kakao.maps.ZoomControl();
 map.addControl(zoomControl, kakao.maps.ControlPosition.LEFT);
 
 // 마커가 지도 위에 표시되도록 설정합니다
-marker.setMap(map);
+
 
 // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
 // marker.setMap(null);   
 
-// 타이머  js
-const timerContainer=document.querySelector(".js-clock"),
-    timer=timerContainer.querySelector("span");
 
-function getTime() {
-    console.log('test');
-    // 동물의 구조날자 +10일
-    // 보호기간 Date
-  const xmasDay = new Date("2022-03-12:12:00:00+0900"); 
-    
-  const now=new Date();
-  if(now>xmasDay){
-    timer.innerText='공고기간 종료';
-  }else{
-  const gap=xmasDay-now;
-  const day=Math.floor(gap/(1000*60*60*24)); //일
-  const hours=Math.floor((gap/(1000*60*60))%24); //시
-  const minutes=Math.floor((gap/(1000*60)%60)); //분
-  const seconds=Math.floor((gap/1000)%60); //초
-//   timer.innerHTML=`${day}  ${hours} ${minutes} ${seconds} `;
-    var hoursChange = hours < 10 ? "0"+hours : hours;
-    var minutesChange  = minutes < 10 ? "0"+minutes : minutes;
-    var secondsChange  = seconds < 10 ? "0"+seconds : seconds;
-    timer.innerHTML="-"+day+"일 <b class='timeFont'>"+hoursChange+":"+minutesChange+":"+secondsChange+"</b>";
-
-
-//   7일&nbsp;&nbsp<b>20:23:10</b>
-  }
-}
-
-function init() {
-    getTime();
-    setInterval(getTime,1000);
-}
-init();
 
 
 

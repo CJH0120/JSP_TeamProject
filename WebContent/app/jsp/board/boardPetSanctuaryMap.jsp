@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,12 +34,13 @@
 </style>
 </head>
 <body>
+	<c:set var="careAddr" value="${careAddr}"/>
 	<section id="petSanctuaryMap">
 		<div>
 			<h1>보호소 위치</h1>
 		</div>
 		<hr>
-		<p>보호소주소 : 서울특별시 양천구 등촌로 160 (목동) 1층</p>
+		<p>보호소주소 : <span id="careAddr">${careAddr}</span></p>
 		<div id="map" style="width:100%;height:350px;"></div>
 		<p class="subText">*방문 전 반드시 전화상담을 먼저 진행해 주세요.</p>
 	</section>
@@ -46,6 +48,7 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e8c046fffe25962d6ea1d0fbd0d4d7cf&libraries=services"></script>
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 <script>
+const careAddr = document.querySelector('#careAddr').innerText;
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 mapOption = { 
     center: new kakao.maps.LatLng(37.5440862, 126.862360), // 지도의 중심좌표
@@ -56,7 +59,7 @@ mapOption = {
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
 
-
+console.log(careAddr)
 
 
 
@@ -65,7 +68,7 @@ var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니
 var geocoder = new kakao.maps.services.Geocoder();
 
 // 주소로 좌표를 검색합니다
-geocoder.addressSearch('서울특별시 양천구 등촌로 160 (목동) 1층', function(result, status) {
+geocoder.addressSearch(careAddr, function(result, status) {
 
     // 정상적으로 검색이 완료됐으면 
      if (status === kakao.maps.services.Status.OK) {

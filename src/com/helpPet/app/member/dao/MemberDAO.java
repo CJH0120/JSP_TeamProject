@@ -18,13 +18,13 @@ public class MemberDAO {
 	}
 	
 	//아이디 중복검사
-	public boolean checkId(String userId) {
-		return (Integer)sqlSession.selectOne("Member.checkId", userId) == 1;
+	public boolean checkIdFnd(String userckid) {
+		
+		return (Integer)sqlSession.selectOne("Member.checkIdFnd", userckid) == 1;
 	}
 	
 	//회원가입
 	public void join(MemberVO member) {
-		System.out.println("넣음");
 		sqlSession.insert("Member.join", member);
 	}
 	

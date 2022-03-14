@@ -63,7 +63,7 @@
                       <li class="nav_header_li"  id="nav_header_li"><span>동물 찾기
                       </span>
                           <ul class="nav_sub_header"> 
-                              <li class="nav_sub_header_li" ><a href ="${pageContext.request.contextPath}/app/jsp/board/boardPetSearchList.jsp">유기동물 조회</a></li>
+                              <li class="nav_sub_header_li" ><a href ="${pageContext.request.contextPath}/board/boardPetSearchList.bo">유기동물 조회</a></li>
                              <li class="nav_sub_header_li" ><a href ="${pageContext.request.contextPath}/app/jsp/map/map.jsp">유기동물 지도</a></li> 
                               <!-- <li class="nav_sub_header_li" ><a>33</li> -->
                           </ul>
@@ -71,7 +71,7 @@
   
                       <li class="nav_header_li"  id="nav_header_li"><span>커뮤니티</span>
                           <ul class="nav_sub_header">
-                              <li class="nav_sub_header_li"><a href ="${pageContext.request.contextPath}/app/jsp/board/boardAdoptReview.jsp">입양후기</a></li>
+                              <li class="nav_sub_header_li"><a href ="${pageContext.request.contextPath}/board/AdoptReviewList.bo">입양후기</a></li>
                               <li class="nav_sub_header_li"><a href ="${pageContext.request.contextPath}/app/jsp/board/boardShowMyPet.jsp">동물자랑</a></li>
                               <!-- <li class="nav_sub_header_li"><a></a>33</li> -->
                           </ul>

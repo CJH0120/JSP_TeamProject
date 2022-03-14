@@ -19,17 +19,16 @@
         <div class="join_step2"> </div>
 
         <p class="text_join">회원정보 입력<span><em>(필수)</em> <a class="text_join_a">입력사항을 꼭 써주시기 바랍니다.</a></span></p>
-        <form action="${pageContext.request.contextPath }/jsp/member/MemberJoinOk.me" method="post" name="join1form" id="join1form"  >
+        <form action="${pageContext.request.contextPath }/member/MemberJoinOk.me" method="post" name="join1form" id="join1form"  >
         
             <div class="form_join">
                 <ul class="form_join_ul">
                     <li class="form_join_li">
                         <div class="inputbox _btn">
                              
-                             <input type="text" name="userId" id="userid" class="input_join" maxlength="15" placeholder="영문자로 시작하는 6~20자 영문자 또는 숫자로 입력해주세요" > 
+                             <input type="text" name="userid" id="userid" class="input_join" maxlength="15" placeholder="영문자로 시작하는 6~20자 영문자 또는 숫자로 입력해주세요" > 
                             <label class="inputbox_label">아이디<em id="list1">(필수)</em></label>
                           	</div>
-                          	<p id="result" style="font-size:0.7em;"></p>
                           	</li>
 
                     <li class="form_join_li">
@@ -63,7 +62,7 @@
 					</li>
                     <li class="form_join_li">
                         <div class="inputbox _btn">
-                            <input type="email" name="userEmail" id="useremail" class="input_join"  placeholder="이메일" > 
+                            <input type="email" name="useremail" id="useremail" class="input_join"  placeholder="이메일" > 
                             <label class="inputbox_label">이메일<em id="list6">(필수)</em></label>
                      </div>
                     </li>
@@ -98,12 +97,14 @@
 
 
     </div>
+<script>
+var contextPath = "${pageContext.request.contextPath }";
 
+</script>
     
 </body>
 
 <%@ include file="/app/jsp/fix/footer.jsp" %> 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/join2.js" ></script>
-
 </html>

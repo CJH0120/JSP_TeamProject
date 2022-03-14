@@ -21,7 +21,14 @@
   	<url-pattern>*.me</url-pattern>
   </servlet-mapping>
   
-  
+    <servlet>
+  	<servlet-name>BoardFrontController</servlet-name>
+  	<servlet-class>com.helpPet.app.board.BoardFrontController</servlet-class>
+  </servlet>
+    <servlet-mapping>
+  	<servlet-name>BoardFrontController</servlet-name>
+  	<url-pattern>*.bo</url-pattern>
+  </servlet-mapping>
   
   
   

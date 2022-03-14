@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -344,6 +346,9 @@
 }
 </style>
 <body>
+
+	<c:set var="reviewDetail" value="${reviewDetail}"/>
+
    <%@ include file="/app/jsp/fix/header.jsp" %> 
  
    
@@ -371,18 +376,19 @@
         <p><pre>밤순이 카페왔어용!!
         밤순이 배고팡!</pre></p> -->
        	<div class="write" style="margin-top: -25px;">
-       		<h4 class="subject">입양후기입니다</h4>
+       		<h4 class="subject">${reviewDetail.getReviewTitle()}</h4>
        		<ul class="date">
-       			<li style="margin-right: 765px;">작성자 : bamsoon1234</li>
-       			<li>DATE : 2022.5.16</li>
-       			<li>HIT : 15</li>
+       			<li style="margin-right: 765px;">작성자 : ${reviewDetail.getUserId()}</li>
+       			<li>${reviewDetail.getReviewBoardNum()}</li>
+       			<li>${reviewDetail.getReviewDate()}</li>
+       			<li>HIT : ${reviewDetail.getReviewReadCount()}</li>
        		</ul>
        		<div>
        			<img src="http://hibyeshelter.com/file_data/realshelter01/2020/12/06/09ee5ca2b11ef0d954fca1d339a2a574.jpg" style="width: 300px;">
        			<br>
        			<br>
        			<div>
-       				<p><pre>입양후기입니다!!!</pre></p>
+       				<p><pre>${reviewDetail.getReviewContent()}</pre></p>
        			</div>
        		</div>
        	</div>

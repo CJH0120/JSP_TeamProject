@@ -19,8 +19,8 @@
 	<classpathentry kind="lib" path="C:/Users/rhrh0/Desktop/jsp_jar/json-simple-1.1.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/rhrh0/Desktop/jsp_jar/jstl.jar"/>
 	<classpathentry kind="lib" path="C:/Users/rhrh0/Desktop/jsp_jar/mail.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rhrh0/Desktop/jsp_jar/mybatis-3.5.9.jar"/>
 	<classpathentry kind="lib" path="C:/Users/rhrh0/Desktop/jsp_jar/mysql-connector-java-8.0.27.jar"/>
 	<classpathentry kind="lib" path="C:/Users/rhrh0/Desktop/jsp_jar/standard.jar"/>
-	<classpathentry kind="lib" path="C:/Users/rhrh0/Desktop/jsp_jar/mybatis-3.5.9.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

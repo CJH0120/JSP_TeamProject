@@ -37,9 +37,10 @@
 	table#write{
 		width: 1200px;
 		padding: 0;
-		margin : 0 auto;
-	
-		
+		margin-top: 350px;
+		margin-bottom: 25px;
+		margin-left: 410px;
+		margin-top: -51px;
 		border-collapse: separate;
 	    border-spacing: 0px;
     	max-width: 1050px;
@@ -66,7 +67,6 @@
         box-sizing: border-box;
     }       
 	td{
-		border-right: 1px solid #ddd;
 		position: relative;
 	    font-size: 14px;
 	    color: #666;
@@ -79,9 +79,8 @@
     	border-radius: 3px; 
    	}
 	.registerWrap{
-		text-align :center;
-		margin-top : 50px;
-		margin-bottom: 80px;
+		margin-left: 750px;
+		margin-bottom: 120px;
 		font-family: 'Varela Round', sans-serif;
 	}
 	.registerWrap input{
@@ -125,24 +124,23 @@
 	}
 	
 	#petsBanner{
-    	 margin-top: 150px;
-    	margin-bottom: 25px;
+        margin-top: 230px;
+        margin-bottom: 27px;
+	    margin-left: 563px;
 	    position: relative;
-	    text-align: center;
-	    
       }
     .petsText{
         position: absolute;
-	    left: 770px;
+	    left: 220px;
 	    top: 90px;
 	    font-size: 21px;
 	    font-family: 'GangwonEdu_OTFBoldA';
       }
       .petsImg{
-        margin-bottom: 20px;
+        margin-bottom: 47px;
       }
       .petsImg img{
-         width: 1050px;
+         width: 760px;
       }
       .thickness{
       	text-decoration: none;
@@ -178,7 +176,7 @@
  
  <!-- 작성폼 -->
  <div>
- <form action="" method="post" enctype="multipart/form-data">
+ <form action="${pageContext.request.contextPath}/board/AdoptReviewWriteOk.bo" method="post" enctype="multipart/form-data">
 	<table id="write">
 		<tbody>
 			<tr>
@@ -187,7 +185,7 @@
 			</tr>
 			<tr>
 				<th >제목</th>
-				<td class="titleInput"><input type="text" style="width: 850px; height: 23px;" ></td>
+				<td class="titleInput"><input type="text" name="reviewTitle" style="width: 850px; height: 23px;" ></td>
 			</tr>
 			<tr>
 				<th>썸네일이미지</th>

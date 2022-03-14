@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -293,12 +295,30 @@
     background: #EEC0DB;
     color: white;
 }
-/* 페이징처리 css종료*/
+
+.g_img p {
+	visibility: hidden;
+}
 </style>
 </head>
 <body>
-<body>
+	
+		<c:set var="reviewList" value="${reviewList}"/>
 
+		<c:set var="page" value="${page}"/>
+		<c:set var="startPage" value="${startPage}"/>
+		<c:set var="endPage" value="${endPage}"/>
+		<c:set var="realEndPage" value="${realEndPage}"/>
+		<c:set var="total" value="${total}"/>
+	
+		<c:if test="${not empty param.code}">
+			<script>
+				alert("로그인 후 이용해주세요.")
+			</script>
+		</c:if>
+
+
+<!-- 헤더 -->
 <%@ include file="/app/jsp/fix/header.jsp" %> 
 
 	<section>
@@ -313,123 +333,39 @@
            
            <!-- 글쓰기 버튼 -->
            <div class="writeWrap">
-         		<a class="writeBtn" href="${pageContext.request.contextPath}/app/jsp/board/adoptReviewWrite.jsp">글쓰기</a>
+         		<a class="writeBtn" href="${pageContext.request.contextPath}/board/AdoptReviewWrite.bo">글쓰기</a>
          		</div>
              
            <!--동물 자랑 사진 게시판-->
+           <c:choose>
+           	<c:when test="${reviewList != null}">
+           		<c:forEach var="review" items="${reviewList}">
             <ul class="gridContainer">
                <li class="grid" onclick="">                  
                      <div class="g_img">
-                       <a href="#"><img src="http://hibyeshelter.com/file_data/realshelter01/2020/12/06/09ee5ca2b11ef0d954fca1d339a2a574.jpg" height="221px"></a>
-                        <p></p>
+                       <a href="${pageContext.request.contextPath}/board/AdoptReviewDetailOk.bo?reviewBoardNum=${review.getReviewBoardNum()}"><img src="http://hibyeshelter.com/file_data/realshelter01/2020/12/06/09ee5ca2b11ef0d954fca1d339a2a574.jpg" height="221px"></a>
+                        <p>${review.getReviewBoardNum()}</p>
                      </div>
                      <div class="g_text">
-                        <p><span> </span>입양후기입니당</p>
-                        <p></p>
+                        <p><span></span>${review.getReviewTitle()}</p>
+                        <p>${review.getUserId()}</p>
                         <button type="submit"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3Y69Ohb8f9aXl6IsFFODFd4OxwkDO6gaE-A&usqp=CAU"></button>
-                        									<span class="hitNum">5</span><span class="date"><img src="https://png.pngtree.com/element_our/png/20181113/wall-clock-logo-icon-design-template-vector-illustration-png_236712.jpg" class="clockPicture">2022-03-05</span>
+                        									<span class="hitNum">${review.getReviewLike()}</span><span class="date"><img src="https://png.pngtree.com/element_our/png/20181113/wall-clock-logo-icon-design-template-vector-illustration-png_236712.jpg" class="clockPicture">${review.getReviewDate()}</span>
                      </div>
-               
                </li>
-               <li class="grid" onclick="">
-                  
-                     <div class="g_img">
-                        <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Golde33443.jpg/280px-Golde33443.jpg" height="221px"></a>
-                        <p></p>
-                     </div>
-                     <div class="g_text">
-                        <p><span></span>우리강아지에용</p>
-                        <p></p>
-                        <button type="submit"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3Y69Ohb8f9aXl6IsFFODFd4OxwkDO6gaE-A&usqp=CAU"></button>
-                        									<span class="hitNum">6</span><span class="date"><img src="https://png.pngtree.com/element_our/png/20181113/wall-clock-logo-icon-design-template-vector-illustration-png_236712.jpg" class="clockPicture">2022-03-04</span>
-                     </div>
-                  
-               </li>
-               <li class="grid" onclick="">
-                  
-                     <div class="g_img">
-                        <a href="#"><img src="https://blog.kakaocdn.net/dn/bTEhUV/btqECug9iOs/mxgZUk4MLJVCK3xtcNe6NK/img.jpg" height="221px"></a>
-                        <p></p>
-                     </div>
-                     <div class="g_text">
-                        <p><span></span>우리강아지에용</p>
-                        <p></p>
-                        <button type="submit"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3Y69Ohb8f9aXl6IsFFODFd4OxwkDO6gaE-A&usqp=CAU"></button>
-                        									<span class="hitNum">7</span><span class="date"><img src="https://png.pngtree.com/element_our/png/20181113/wall-clock-logo-icon-design-template-vector-illustration-png_236712.jpg" class="clockPicture">2022-03-03</span>
-                     </div>
-                  
-               </li>
-               <li class="grid" onclick="">
-                  
-                     <div class="g_img">
-                        <a href="#"><img src="https://post-phinf.pstatic.net/MjAxNzAyMjhfOTMg/MDAxNDg4MjYxODA4ODYz.8HZ-zLSPF_nIzsSyYi8x7aSd29aLo6AJmIoaHL1GHBog.DIz1kZtGy-8Tj_hVyTTGCoHtuA58PKzB7zAYqK4slVcg.JPEG/3.jpg?type=w1200" height="221px"></a>
-                        <p></p>
-                     </div>
-                     <div class="g_text">
-                        <p><span></span>우리강아지에용</p>
-                        <p></p>
-                        <button type="submit"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3Y69Ohb8f9aXl6IsFFODFd4OxwkDO6gaE-A&usqp=CAU"></button>
-                        									<span class="hitNum">12</span><span class="date"><img src="https://png.pngtree.com/element_our/png/20181113/wall-clock-logo-icon-design-template-vector-illustration-png_236712.jpg" class="clockPicture">2022-03-01</span>
-                     </div>
-                  
-               </li>
-               <li class="grid" onclick="">
-                  
-                     <div class="g_img">
-                        <a href="#"><img src="https://blog.kakaocdn.net/dn/bTEhUV/btqECug9iOs/mxgZUk4MLJVCK3xtcNe6NK/img.jpg" height="221px"></a>
-                        <p></p>
-                     </div>
-                     <div class="g_text">
-                        <p><span></span>우리강아지에용</p>
-                        <p></p>
-                        <button type="submit"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3Y69Ohb8f9aXl6IsFFODFd4OxwkDO6gaE-A&usqp=CAU"></button>
-                        									<span class="hitNum">5</span><span class="date"><img src="https://png.pngtree.com/element_our/png/20181113/wall-clock-logo-icon-design-template-vector-illustration-png_236712.jpg" class="clockPicture">2022-03-05</span>
-                     </div>
-                  
-               </li>
-               <li class="grid" onclick="">
-                  
-                     <div class="g_img">
-                        <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Golde33443.jpg/280px-Golde33443.jpg" height="221px"></a>
-                        <p></p>
-                     </div>
-                     <div class="g_text">
-                        <p><span></span>우리강아지에용</p>
-                        <p></p>
-                        <button type="submit"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3Y69Ohb8f9aXl6IsFFODFd4OxwkDO6gaE-A&usqp=CAU"></button>
-                        									<span class="hitNum">5</span><span class="date"><img src="https://png.pngtree.com/element_our/png/20181113/wall-clock-logo-icon-design-template-vector-illustration-png_236712.jpg" class="clockPicture">2022-03-05</span>
-                     </div>
-                  
-               </li>
-               <li class="grid" onclick="">
-                  
-                     <div class="g_img">
-                        <a href="#"><img src="https://blog.kakaocdn.net/dn/bTEhUV/btqECug9iOs/mxgZUk4MLJVCK3xtcNe6NK/img.jpg" height="221px"></a>
-                        <p></p>
-                     </div>
-                     <div class="g_text">
-                        <p><span></span>우리강아지에용</p>
-                        <p></p>
-                        <button type="submit"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3Y69Ohb8f9aXl6IsFFODFd4OxwkDO6gaE-A&usqp=CAU"></button>
-                        									<span class="hitNum">5</span><span class="date"><img src="https://png.pngtree.com/element_our/png/20181113/wall-clock-logo-icon-design-template-vector-illustration-png_236712.jpg" class="clockPicture">2022-03-05</span>
-                     </div>
-                  
-               </li>
-               <li class="grid" onclick="">
-                  
-                     <div class="g_img">
-                        <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Golde33443.jpg/280px-Golde33443.jpg" height="221px"></a>
-                        <p></p>
-                     </div>
-                     <div class="g_text">
-                        <p><span></span>우리강아지에용</p>
-                        <p></p>
-                        <button type="submit"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3Y69Ohb8f9aXl6IsFFODFd4OxwkDO6gaE-A&usqp=CAU"></button>
-                        									<span class="hitNum">5</span><span class="date"><img src="https://png.pngtree.com/element_our/png/20181113/wall-clock-logo-icon-design-template-vector-illustration-png_236712.jpg" class="clockPicture">2022-03-05</span>
-                     </div>
-                  
-               </li>
-            </ul>
+             </ul>
+           		</c:forEach>
+           	</c:when>
+           	<c:otherwise>
+				<li>등록된 게시물이 없습니다.</li>           	
+           	</c:otherwise>
+           	
+           </c:choose>   
+           
+           
+          
+              
+           
 
 
                   <!--페이징 -->
@@ -437,11 +373,25 @@
        
        
        <div class="under_num">
-
-                        <a href="#" class="num on">1</a>
-                        <a href="#" class="num">2</a>
-                        <a href="#" class="num">3</a>
-
+       		<c:if test="${startPage > 1}">
+				<a href="${pageContext.request.contextPath}/board/AdoptReviewList.bo?page=${startPage - 1}">&lt;</a>
+			</c:if>
+       
+			<c:forEach var="i" begin="${startPage}" end="${endPage}">
+				<c:choose>
+					<c:when test="${i eq page}">
+						<c:out value="${i}"/>
+					</c:when>
+						<c:otherwise>
+                        	<a href="${pageContext.request.contextPath}/board/AdoptReviewList.bo?page=${i}" class="num on"><c:out value="${i}"/></a>
+                        </c:otherwise>
+					
+				</c:choose>
+			</c:forEach>
+			
+			<c:if test="${endPage < realEndPage}">
+				<a href="${pageContext.request.contextPath}/board/AdoptReviewList.bo?page=${endPage + 1}">&gt;</a>
+			</c:if>
         </div>
 <!--          <div class="paging">
             <a href="#" class="page" onclick="">1</a>

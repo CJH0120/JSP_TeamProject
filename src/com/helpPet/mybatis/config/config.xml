@@ -3,8 +3,9 @@
 
 <configuration>
 	<typeAliases>
-	<typeAlias type="com.helpPet.app.member.vo.MemberVO" alias="memberVO"/>
-		<typeAlias type="com.helpPet.app.board.vo.reviewVO" alias="reviewVO"/>
+		<typeAlias type="com.helpPet.app.member.vo.MemberVO" alias="memberVO"/>
+		<typeAlias type="com.helpPet.app.board.boardAdoptReview.vo.ReviewVO" alias="reviewVO"/>
+		<typeAlias type="com.helpPet.app.board.boardAdoptReview.vo.ReviewDetailVO" alias="reviewDetailVO"/>
 	</typeAliases>
 
 	<environments default="development">
@@ -12,7 +13,7 @@
 			<transactionManager type="JDBC"/>
 			<dataSource type="POOLED">
 				<property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-				<property name="url" value="jdbc:mysql://localhost:3306/helppet"/>
+				<property name="url" value="jdbc:mysql://localhost:3306/helpPet"/>
 				<property name="username" value="root"/>
 				<property name="password" value="1234"/>
 			</dataSource>

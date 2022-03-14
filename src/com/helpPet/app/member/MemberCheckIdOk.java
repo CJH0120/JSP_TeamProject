@@ -17,18 +17,20 @@ public class MemberCheckIdOk implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException{
 		
-		String userId = req.getParameter("userId");
+		String userIdch = req.getParameter("UserId");
 		MemberDAO dao = new MemberDAO();
 		PrintWriter out = resp.getWriter();
 		JSONObject obj = new JSONObject();
-		
-		if(dao.checkId(userId)) {
+	
+		if(dao.checkIdFnd(userIdch)) {
+			
 			//아이디가 중복되었을 때
 //			out.print("not-ok");
 			obj.put("status", "not-ok");
 		}else {
 			//사용 가능한 아이디일 때
 //			out.print("ok");
+		
 			obj.put("status", "ok");
 		}
 		
