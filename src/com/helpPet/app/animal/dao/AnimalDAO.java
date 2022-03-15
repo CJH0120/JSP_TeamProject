@@ -10,13 +10,18 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import com.helpPet.app.animal.vo.AnimalKindVO;
 import com.helpPet.app.animal.vo.AnimalVO;
 
 public class AnimalDAO {
 	 private final String upr_cd = "6110000" ;
-	 private final static String ECNODING="y4B2P1Gm6ctNv9NBM6tUhuuAkRrkDvGMTYYgVrna%2B0tz4yDoMTKz9JaH1GJoYKcQiX774g8XZs0Wrsp5DpSoCw%3D%3D";
+//	 private final static String ECNODING="y4B2P1Gm6ctNv9NBM6tUhuuAkRrkDvGMTYYgVrna%2B0tz4yDoMTKz9JaH1GJoYKcQiX774g8XZs0Wrsp5DpSoCw%3D%3D";
+	 private final static String ECNODING="%2FP%2F2Sf%2F24K8WpOxNpkbqdpDm9Fs5qbnCum2Og5e3lX1JkNNXtS0lLMrRLuff3IQoaAFecCKx6yFTBeLe1JRv2w%3D%3D";
 	 private final static String DECODING="y4B2P1Gm6ctNv9NBM6tUhuuAkRrkDvGMTYYgVrna+0tz4yDoMTKz9JaH1GJoYKcQiX774g8XZs0Wrsp5DpSoCw==";
+//	 private final static String ECNODING="f19URb8bzBUjm6tsuU9%2B%2FgpWBGHoGVSmfn5nMzoVSGY8cH9N22%2BMDwLRIfvKCx42b2JDolm5bl23Ja1MHfQbxA%3D%3D";
+//	 private final static String DECODING="f19URb8bzBUjm6tsuU9+/gpWBGHoGVSmfn5nMzoVSGY8cH9N22+MDwLRIfvKCx42b2JDolm5bl23Ja1MHfQbxA==";
 	 private String url ="";
+	 int count = 0;
 	 
 	 
 	// 동물 보호 API API키 
@@ -33,7 +38,89 @@ public class AnimalDAO {
 		return url;
 	}
 
-	public ArrayList<AnimalVO> getSearchPet(String page) {
+	public ArrayList<AnimalKindVO> getSearchPetKind(String kind) {
+		// 받아오는 검색 조건
+		// 시작 연도-월-일 
+		// 종료 연도-월-일
+		// 종류(축종)
+		// 품종 
+		// 중성화 여부 
+		ArrayList<AnimalKindVO> datas = new ArrayList<>();
+		
+		
+		try{
+			this.url = "http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/kind"
+					+ "?serviceKey="+ECNODING
+					+ "&up_kind_cd="+kind;
+
+			
+			
+			DocumentBuilderFactory dbFactoty = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactoty.newDocumentBuilder();
+			//Parse the content of the given URI as an XML documentand return a new DOM Document object. 
+			Document doc = dBuilder.parse(url);
+			
+			// DOM Tree가 XML 문서의 구조대로 완성될 수 있게 한다.
+			doc.getDocumentElement().normalize();
+			System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
+			
+			// 파싱할 tag
+			NodeList nList = doc.getElementsByTagName("item");
+			System.out.println("파싱할 리스트 수 : "+ nList.getLength());
+			
+			datas = getNodeListValueKind(nList);
+			
+			
+			
+		} catch (Exception e){    
+			e.printStackTrace();
+		}   
+		
+		return datas;
+		
+	}
+//	public ArrayList<AnimalVO> getSearchPet(String page) {
+//		// 받아오는 검색 조건
+//		// 시작 연도-월-일 
+//		// 종료 연도-월-일
+//		// 종류(축종)
+//		// 품종 
+//		// 중성화 여부 
+//		ArrayList<AnimalVO> datas = new ArrayList<>();
+//		
+//		
+//		try{
+//			this.url = "http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic"
+//					+ "?serviceKey=y4B2P1Gm6ctNv9NBM6tUhuuAkRrkDvGMTYYgVrna%2B0tz4yDoMTKz9JaH1GJoYKcQiX774g8XZs0Wrsp5DpSoCw%3D%3D&upr_cd=6110000&numOfRows=12"
+//					+ "&pageNo="+page;
+//			
+//			
+//			
+//			DocumentBuilderFactory dbFactoty = DocumentBuilderFactory.newInstance();
+//			DocumentBuilder dBuilder = dbFactoty.newDocumentBuilder();
+//			//Parse the content of the given URI as an XML documentand return a new DOM Document object. 
+//			Document doc = dBuilder.parse(url);
+//			
+//			// DOM Tree가 XML 문서의 구조대로 완성될 수 있게 한다.
+//			doc.getDocumentElement().normalize();
+//			System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
+//			
+//			// 파싱할 tag
+//			NodeList nList = doc.getElementsByTagName("item");
+//			System.out.println("파싱할 리스트 수 : "+ nList.getLength());
+//			
+//			datas = getNodeListValueAnimal(nList);
+//			
+//			
+//			
+//		} catch (Exception e){    
+//			e.printStackTrace();
+//		}   
+//		
+//		return datas;
+//		
+//	}
+	public ArrayList<AnimalVO> getSearchPet(String bgnde, String endde , String numOfRows) {
 		// 받아오는 검색 조건
 		// 시작 연도-월-일 
 		// 종료 연도-월-일
@@ -44,9 +131,12 @@ public class AnimalDAO {
 		
 		
 		try{
-			this.url = "http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic"
-					+ "?serviceKey=y4B2P1Gm6ctNv9NBM6tUhuuAkRrkDvGMTYYgVrna%2B0tz4yDoMTKz9JaH1GJoYKcQiX774g8XZs0Wrsp5DpSoCw%3D%3D&upr_cd=6110000&numOfRows=12"
-					+ "&pageNo="+page;
+			this.url = "http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic";
+					url += "?serviceKey="+ECNODING;
+					if(bgnde != null  ) {  url += "&bgnde="+bgnde;};
+					if(endde != null ) { url += "&endde="+endde;};
+					url += "&upr_cd="+upr_cd;
+							url += "&numOfRows="+numOfRows;
 					
 	
 			
@@ -63,7 +153,7 @@ public class AnimalDAO {
 			NodeList nList = doc.getElementsByTagName("item");
 			System.out.println("파싱할 리스트 수 : "+ nList.getLength());
 			
-			datas = getNodeListValue(nList);
+			datas = getNodeListValueAnimal(nList);
 			
 			
 			
@@ -72,6 +162,40 @@ public class AnimalDAO {
 		}   
 		
 		return datas;
+		
+	}
+	public int getAllPetCnt() {
+
+		int cnt = 0;
+		
+		try{
+
+			this.url = "http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic"
+					+ "?serviceKey="+ECNODING
+					+ "&upr_cd="+upr_cd;
+			DocumentBuilderFactory dbFactoty = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactoty.newDocumentBuilder();
+			//Parse the content of the given URI as an XML documentand return a new DOM Document object. 
+			Document doc = dBuilder.parse(url);
+			
+			// DOM Tree가 XML 문서의 구조대로 완성될 수 있게 한다.
+			doc.getDocumentElement().normalize();
+			System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
+			
+			// 파싱할 tag
+			NodeList nList = doc.getElementsByTagName("item");
+		
+			cnt = getTotal(getUrl());
+			System.out.println(cnt+"====================");
+			
+			
+			
+			
+		} catch (Exception e){    
+			e.printStackTrace();
+		}   
+		
+		return cnt;
 		
 	}
 	
@@ -88,7 +212,8 @@ public class AnimalDAO {
 		
 		try{
 			this.url = "http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic"
-					+ "?serviceKey=y4B2P1Gm6ctNv9NBM6tUhuuAkRrkDvGMTYYgVrna%2B0tz4yDoMTKz9JaH1GJoYKcQiX774g8XZs0Wrsp5DpSoCw%3D%3D&upr_cd=6110000&numOfRows="+numOfRows
+					+ "?serviceKey="+ECNODING
+					+ "&numOfRows="+numOfRows
 					+ "&pageNo="+pageNo;
 	
 			
@@ -105,7 +230,7 @@ public class AnimalDAO {
 			NodeList nList = doc.getElementsByTagName("item");
 			System.out.println("파싱할 리스트 수 : "+ nList.getLength());
 			
-			datas = getNodeListValue(nList);
+			datas = getNodeListValueAnimal(nList);
 			
 			
 			
@@ -118,7 +243,7 @@ public class AnimalDAO {
 	}
 	
 	
-	public ArrayList<AnimalVO> getSearchPet(String bgnde, String endde, String upkind, String kind, String neuterYn ) {
+	public ArrayList<AnimalVO> getSearchPet(String bgnde, String endde, String upkind, String kind, String neuterYn,String pageNo, String numOfRows ) {
 		// 받아오는 검색 조건
 		// 시작 연도-월-일 
 		// 종료 연도-월-일
@@ -132,13 +257,15 @@ public class AnimalDAO {
 		this.url = "http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/";
 				   url += "abandonmentPublic";
 				   url += "?serviceKey="+ECNODING;
-				   url += "&bgnde="+bgnde;
-				   url += "&endde="+endde;
-				   url += "&upkind="+upkind;
-				   url += "&kind="+kind;
 				   url += "&upr_cd="+upr_cd;
-				   url += "&neuter_yn="+neuterYn;
-
+				   if(bgnde != null  ) {  url += "&bgnde="+bgnde;}
+				   if(endde != null ) { url += "&endde="+endde;}
+				   if(upkind != null) {url += "&upkind="+upkind;}
+				   if(kind != null) {url += "&kind="+kind;}
+				   if(neuterYn != null) {url += "&neuter_yn="+neuterYn;}
+				   if(numOfRows != null) { url += "&numOfRows="+numOfRows;}
+				   if(pageNo != null) {url += "&pageNo="+pageNo;}
+			System.out.println(url);
 			DocumentBuilderFactory dbFactoty = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactoty.newDocumentBuilder();
 			//Parse the content of the given URI as an XML documentand return a new DOM Document object. 
@@ -152,7 +279,7 @@ public class AnimalDAO {
 			NodeList nList = doc.getElementsByTagName("item");
 			System.out.println("파싱할 리스트 수 : "+ nList.getLength());
 
-			datas = getNodeListValue(nList);
+			datas = getNodeListValueAnimal(nList);
  
 
 
@@ -171,8 +298,8 @@ public class AnimalDAO {
 		
 	}
 	
-	// nList의 데이터를 추출하여 반환하는 메소드
-	public ArrayList<AnimalVO> getNodeListValue(NodeList nList ) {
+	// nList의 AnimalVo 데이터를 추출하여 반환하는 메소드
+	public ArrayList<AnimalVO> getNodeListValueAnimal(NodeList nList ) {
 		ArrayList<AnimalVO> datas = new ArrayList<>();
 		for(int temp = 0; temp < nList.getLength(); temp++){
 			Node nNode = nList.item(temp);
@@ -208,6 +335,27 @@ public class AnimalDAO {
 				datas.add(data);
 
 
+			}    
+		}   
+		
+		return datas;
+	}
+	// nList의 AnimalVoKind 데이터를 추출하여 반환하는 메소드
+	public ArrayList<AnimalKindVO> getNodeListValueKind(NodeList nList ) {
+		ArrayList<AnimalKindVO> datas = new ArrayList<>();
+		for(int temp = 0; temp < nList.getLength(); temp++){
+			Node nNode = nList.item(temp);
+			if(nNode.getNodeType() == Node.ELEMENT_NODE){
+				
+				Element eElement = (Element)nNode;
+				
+				
+				AnimalKindVO data = new AnimalKindVO();	
+				data.setKindCd((getTagValue("kindCd", eElement))); // 나이 
+				data.setKNm((getTagValue("KNm", eElement))); // 보호소 주소 
+				
+				datas.add(data);
+				
 			}    
 		}   
 		

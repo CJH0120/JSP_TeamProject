@@ -13,7 +13,7 @@
 
      <link rel="stylesheet" media="(min-width:992px) and (max-width:1100px)" href="${pageContext.request.contextPath}/assets/css/header.css">
     <link rel="stylesheet" media="(max-width:992px)" href="${pageContext.request.contextPath}/assets/css/header.css">
-	<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+   <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <title>헤더</title>
 </head>
 <body >
@@ -63,7 +63,7 @@
                       <li class="nav_header_li"  id="nav_header_li"><span>동물 찾기
                       </span>
                           <ul class="nav_sub_header"> 
-                              <li class="nav_sub_header_li" ><a href ="${pageContext.request.contextPath}/board/boardPetSearchList.bo">유기동물 조회</a></li>
+                              <li class="nav_sub_header_li" ><a href ="${pageContext.request.contextPath}/board/boardPetSearchListOk.bo?sessionState=close">유기동물 조회</a></li>
                              <li class="nav_sub_header_li" ><a href ="${pageContext.request.contextPath}/app/jsp/map/map.jsp">유기동물 지도</a></li> 
                               <!-- <li class="nav_sub_header_li" ><a>33</li> -->
                           </ul>
@@ -89,7 +89,7 @@
                       </span>
                           <ul class="nav_sub_header">
                               <li class="nav_sub_header_li"><a href ="${pageContext.request.contextPath}/app/jsp/board/boardFaq.jsp">자주하는 질문</a></li>
-                              <li class="nav_sub_header_li"><a href ="${pageContext.request.contextPath}/app/jsp/board/boardQnA.jsp">1대1 온라인 문의</a></li>
+                              <li class="nav_sub_header_li"><a href ="${pageContext.request.contextPath}/board/QnA.bo">1대1 온라인 문의</a></li>
                            
                               <!-- <li class="nav_sub_header_li">33</li> -->
                           </ul>
@@ -282,6 +282,6 @@
   
   
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-   <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/header.js" ></script>	
+   <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/header.js" ></script>   
         </body>
 </html>

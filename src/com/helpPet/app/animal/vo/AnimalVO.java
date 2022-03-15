@@ -17,14 +17,46 @@ public class AnimalVO {
 	private String  sexCd; // 동물 성별
 	private String  specialMark; // 세부 사항
 	private String  weight; // 몸무게
+	
+	
+	
+
 	private String  orgNm; // 관할 기관
+	private String  noticeSdt; // 공고 시작일
 	// 보호소 관련 정보
 	private String  careAddr; // 보호소 주소 
 	private String  careNm; // 보호중 시설 이름
 	private String  careTel; // 보호시설 전화번호
 	
 
-	
+	public AnimalVO() {
+	}
+	public AnimalVO(String age, String happenDt, String colorCd, String happenPlace, String neuterYn, String kindCd,
+			String noticeEdt, String noticeNo, String popfile, String processState, String sexCd, String specialMark,
+			String weight, String orgNm, String noticeSdt, String careAddr, String careNm, String careTel,
+			String desertionNo, String filename, String officetel) {
+		this.age = age;
+		this.happenDt = happenDt;
+		this.colorCd = colorCd;
+		this.happenPlace = happenPlace;
+		this.neuterYn = neuterYn;
+		this.kindCd = kindCd;
+		this.noticeEdt = noticeEdt;
+		this.noticeNo = noticeNo;
+		this.popfile = popfile;
+		this.processState = processState;
+		this.sexCd = sexCd;
+		this.specialMark = specialMark;
+		this.weight = weight;
+		this.orgNm = orgNm;
+		this.noticeSdt = noticeSdt;
+		this.careAddr = careAddr;
+		this.careNm = careNm;
+		this.careTel = careTel;
+		this.desertionNo = desertionNo;
+		this.filename = filename;
+		this.officetel = officetel;
+	}
 	
 	
 	// private int  desertionNo; // 유기 번호 (공고번호 아님) 
@@ -32,7 +64,6 @@ public class AnimalVO {
 	// 해쉬코드 및 이퀄스 재정의시 필요하면  int로 수정
 	private String  desertionNo; // 유기 번호 (공고번호 아님) 
 	private String  filename; // 동물 사진 파일 uri 작은사진
-	private String  noticeSdt; // 공고 시작일
 	private String  officetel; // 담당자 전화번호 
 	public String getAge() {
 		return age;

@@ -23,6 +23,19 @@ public class MemberDAO {
 		return (Integer)sqlSession.selectOne("Member.checkIdFnd", userckid) == 1;
 	}
 	
+	
+	//닉네임 중복검사 
+		public boolean checkNick(String nickFnd) {
+			
+			return (Integer)sqlSession.selectOne("Member.checkNick", nickFnd) == 1;
+		}
+	//이메일
+		public boolean checkEmail(String EmilFnd) {
+			
+			return (Integer)sqlSession.selectOne("Member.checkEmail", EmilFnd) == 1;
+		}
+	
+	
 	//회원가입
 	public void join(MemberVO member) {
 		sqlSession.insert("Member.join", member);

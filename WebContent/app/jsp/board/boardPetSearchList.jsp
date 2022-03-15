@@ -105,7 +105,7 @@ ul.gridContainer {
 	line-height: 18px;
 }
 
-}
+
 body {
 	margin: 0px;
 	padding: 0px;
@@ -284,12 +284,22 @@ div#genImgDiv img {
 	row-gap: 4px;
 }
 
-.btnWrap {
-	width: 12%;
+/* 초기화 버튼 있을 때  */
+/* .btnWrap {
+	width: 25%;
 	height: 62%;
 	right: 138px;
 	bottom: 0px;
+	display: flex;
+} */
+.btnWrap {
+	width: 13%;
+	height: 62%;
+	right: 138px;
+	bottom: 0px;
+	
 }
+
 
 .dateIntput {
 	width: 233px;
@@ -467,43 +477,43 @@ div#genImgDiv img {
 			<!-- 보호동물 검색 form 시작 -->
 			<div class="bgForm">
 
-				<form id="searchForm">
+				<form name="searchForm" id="searchForm" action="${pageContext.request.contextPath}/board/boardPetSearchListOk.bo" method="post">
 
 					<div class="formInnerWrap">
 						<div class="formTop">
 							<div class="dateDiv">
-								<input type="date" placeholder="유기날짜(시작일)" class="dateIntput">~<input
-									type="date" placeholder="유기날짜(종료일)" class="dateIntput">
+								<input type="date" name="bgnde" id="bgnde" placeholder="유기날짜(시작일)" class="dateIntput">~<input
+									type="date" name="endde" id="endde" placeholder="유기날짜(종료일)" class="dateIntput">
 							</div>
 
 							<div class="selectWrap">
 
-								<select>
+								<select id="upKindCd" name="upKindCd" onchange="findKindCd()">
 									<option>종류</option>
-									<option value="">개</option>
-									<option value="">고양이</option>
-									<option value="">기타동물</option>
-								</select> <select>
+									<option value="417000">개</option>
+									<option value="422400">고양이</option>
+									<option value="429900">기타동물</option>
+								</select> 
+								<select id="kind_cd" name="kind_cd" onclick="">
 									<option>품종</option>
 									<!-- 종류를 선택하지 않았다면 품종은 '품종'만 선택 가능하게 구현
 			                              js와 유기동뮬API를 사용하여 종류의 값에 따라 알맞는 품종을 가져오게 구현 -->
-									<option value="">개</option>
-									<option value="">고양이</option>
-									<option value="">기타동물</option>
-								</select> <select>
+
+								</select> 
+								<select name="neuterYn" id="neuterYn">
 									<option>중성화여부</option>
-									<option value="">예</option>
-									<option value="">아니요</option>
-									<option value="">미상</option>
+									<option value="Y">예</option>
+									<option value="N">아니요</option>
+									<option value="U">미상</option>
 								</select>
 							</div>
 						</div>
-
+						<input type="hidden" name="formOk" value="OK">
+						<input type="hidden" name="OkPage" value="page">
 
 						<div class="btnWrap">
-
-							<button type="submit">검색</button>
-							<!--   <button type="reset">초기화</button> -->
+							<button onclick="searchFormSend()">검색</button>
+							<!-- <button  type="reset" onclick="searchFormRest()">초기화</button>  -->
 						</div>
 
 					</div>
@@ -520,9 +530,13 @@ div#genImgDiv img {
 				<c:forEach var="animal" items="${animalList}">
 					<li class="grid">
 						<div class="wrap">
+							<!-- <div class="g_img" onclick="detailFormSend()"> -->
+						
 							<div class="g_img"
-								onclick="window.location.href = '${pageContext.request.contextPath}/board/boardPetSearchViewOk.bo?getNoticeNo=${animal.getNoticeNo()}&page=${page}';">
-								<img src="${animal.getPopfile()}">
+								onclick="window.location.href = '${pageContext.request.contextPath}/board/boardPetSearchViewOk.bo?getNoticeNo=${animal.getNoticeNo()}&page=${page}';"> 
+								                  <input type="hidden" name="noticeNo"value="${animal.getNoticeNo()}">
+								<img src="${animal.getPopfile()}"> 
+								
 								<div id="statusImg">
 									<c:choose>
 										<c:when test="${fn:contains(animal.getProcessState(), '보호중')}">
@@ -584,7 +598,9 @@ div#genImgDiv img {
 								</div>
 							</div>
 						</div>
+					
 					</li>
+					
 				</c:forEach>
 
 
@@ -601,14 +617,6 @@ div#genImgDiv img {
 				<c:if test="${page > 1}">
 					<a href="${pageContext.request.contextPath}/board/boardPetSearchList.bo?page=${page - 1}">&lt;</a>
 				</c:if>
-												
-
-			
-													
-
-											
-												
-
 				<c:forEach var="i" begin="${startPage}" end="${endPage}">
 					<c:choose>
 						<c:when test="${i eq page}">
@@ -654,6 +662,105 @@ div#genImgDiv img {
 </body>
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 <script>
+         	var contextPath = "${pageContext.request.contextPath}";
+         	var formOk = "${formOk}";
+         	var bgnde = "${bgnde}";
+         	var endde = "${endde}";
+         	var upKindCd = "${upKindCd}";
+         	var kind_cd = "${kind_cd}";
+         	var neuterYn = "${neuterYn}";
+</script>
+<script>
+
+//select 박스 동물 종류에 따라 변화 
+
+console.log(formOk);
+console.log(upKindCd);
+console.log(kind_cd);
+console.log(bgnde);
+
+function searchFormRest() {
+	window.location.href = contextPath + "/board/boardPetSearchReset.bo"; 
+
+}
+
+function searchFormSend() {
+	$('#searchForm').submit();
+	
+}
+
+function ftailFormSend() {
+	$('#detailForm').submit();
+}
+
+
+function findKindCd(){
+		var upKindCd  =$("#upKindCd option:selected").val();
+
+	$.ajax({
+		url: contextPath + "/board/selectAnimalKind.bo?upKindCd="+upKindCd,
+		type: "get",
+		dataType: "json",
+		success: showSelect,
+		error: function(a,b,c){
+			console.log(a)
+			console.log(b)
+			console.log(c)
+			console.log("축종 코드 오류");
+		}
+	}); 
+}
+
+function showSelect(kindDatas){
+	var text = "";
+	console.log($('#kind_cd').val());
+	console.log(kind_cd);
+	if(kindDatas.length == 0){
+		
+		text += "<option>품종</option>";
+	}else{
+		text += "<option>선택안함</option>";
+	for (var i = 0; i < kindDatas.length; i++) {
+		
+		if($('#kind_cd').val() == kindDatas[i].kindCd  ){
+		
+		text += "<option value='"+ kindDatas[i].kindCd+"' selected >"+kindDatas[i].kNm+"</option>";
+		}else{
+		
+		text += "<option value='"+ kindDatas[i].kindCd+"'  >"+kindDatas[i].kNm+"</option>";
+		}
+	}
+
+	}
+/* 	$.each(kindDatas, function(index, kindData){
+		text += "<option>"+kindData.kNm+"</option>";
+		console.log(kindData.kNm)
+	} */
+	 $("#kind_cd").html(text);
+	
+	for (var i = 0; i < kindDatas.length; i++) {
+		if( kind_cd == kindDatas[i].kindCd ){
+		 $("#kind_cd").val( kind_cd ).prop("selected", true);
+		}
+	} 
+
+}
+
+searchRemember();
+
+function searchRemember() {
+	if(formOk == "OK"){
+		$('#bgnde').val(bgnde);
+		$('#endde').val(endde);
+		$('#upKindCd').val(upKindCd);
+		
+		$('#neuterYn').val(neuterYn);
+		findKindCd();
+	}
+}
+
+
+
    var nowpage = 4;
    var pages = document.querySelectorAll('a.page');
    pages.forEach(p =>{

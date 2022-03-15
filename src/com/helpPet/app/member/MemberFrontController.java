@@ -34,6 +34,13 @@ public class MemberFrontController extends HttpServlet {
 			if(command.equals("/member/MemberCheckIdOk.me")) {
 				new MemberCheckIdOk().execute(req, resp);
 				
+			}else if(command.equals("/member/MemberCheckNickOk.me")) {
+				new MemberCheckNickOk().execute(req, resp);
+				
+			}else if(command.equals("/member/MemberCheckMailOk.me")) {
+				new MemberCheckMailOk().execute(req, resp);
+				
+			
 			}else if(command.equals("/member/MemberJoin.me")) {
 				af = new ActionForward();
 				af.setRedirect(false);

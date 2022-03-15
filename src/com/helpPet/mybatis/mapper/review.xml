@@ -4,7 +4,7 @@
 
 <!-- 입양후기 게시글 목록 -->
 <select id="selectAll" parameterType="map" resultType="ReviewVO">
-		select reviewBoardNum, reviewTitle, reviewLike, userId, reviewDate from tbl_review
+		select reviewBoardNum, reviewTitle, reviewLike, userId, userNum, reviewDate from tbl_review
 		order by 1 desc limit #{startRow}, #{rowCount}
 </select>
 
@@ -13,11 +13,24 @@
 	select count(reviewBoardNum) from tbl_review
 </select>
 
+<!-- 좋아요 개수 가져오기 -->
+<select id="getLike" parameterType="_int" resultType="_int">
+	select reviewLike from tbl_review
+	where reviewBoardNum = #{reviewBoardNum};
+</select>
+
+<!-- 좋아요 클릭시 숫자 증가 -->
+<update id="likeUp" parameterType="_int">
+	update tbl_review
+	set reviewLike=reviewLike+1
+	where reviewBoardNum = #{reviewBoardNum};
+</update>
+
 <!-- 입양후기 게시글 상세페이지 -->
-<select id="selectDetail" parameterType="_int" resultType="ReviewDetailVO">
-	select reviewBoardNum, userNum, userId, reviewTitle, reviewContent, 
-		reviewReadCount, reviewDate from tbl_reviewDetail d join tbl_review r
-		on d.userId = r.userId and reviewBoardNum = #{reviewBoardNum}
+<select id="selectDetail" parameterType="_int" resultType="ReviewVO">
+	select reviewBoardNum, u.userId, reviewTitle, reviewContent, reviewReadCount, reviewDate 
+		from tbl_review r join tbl_user u
+		on r.userId = u.userId and reviewboardNum = #{reviewBoardNum}
 </select>
 
 </mapper>

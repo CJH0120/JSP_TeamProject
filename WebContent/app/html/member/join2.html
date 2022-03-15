@@ -15,67 +15,82 @@
         <div class="join_step2"> </div>
 
         <p class="text_join">회원정보 입력<span><em>(필수)</em> <a class="text_join_a">입력사항을 꼭 써주시기 바랍니다.</a></span></p>
-        <form action="#" method="post" name="joinform" id="joinform">
+        <form action="${pageContext.request.contextPath }/member/MemberJoinOk.me" method="post" name="join1form" id="join1form"  >
+        
             <div class="form_join">
                 <ul class="form_join_ul">
                     <li class="form_join_li">
                         <div class="inputbox _btn">
-                            <input type="text" name="user_id" id="user_id" class="input_join" maxlength="20" placeholder="아이디" > 
-                            <label class="inputbox_label">아이디<em>(필수)</em></label>
+                             
+                             <input type="text" name="userid" id="userid" class="input_join" maxlength="15" placeholder="영문자로 시작하는 6~20자 영문자 또는 숫자로 입력해주세요" > 
+                            <label class="inputbox_label">아이디<em id="list1">(필수)</em></label>
+                          	</div>
+                          	</li>
 
                     <li class="form_join_li">
                         <div class="inputbox _btn">
-                            <input type="text" name="user_name" id="user_name" class="input_join" maxlength="6" placeholder="이름" > 
-                            <label class="inputbox_label">이름<em>(필수)</em></label>
-
+                            <input type="text" name="userName" id="username" class="input_join" maxlength="6" placeholder="이름" > 
+                            
+                            <label class="inputbox_label">이름<em id="list" >(필수)</em></label>
+						</div>
+					</li>
+					
+					
                     <li class="form_join_li">
                         <div class="inputbox _btn">
-                            <input type="password" name="user_pw" id="user_pw" class="input_join" maxlength="20" placeholder="비밀번호" > 
-                            <label class="inputbox_label">비밀번호<em>(필수)</em></label>
-
+                            <input type="password" name="userPw" id="userpw" class="input_join" maxlength="20" placeholder="문자 숫자를 포함해 8자 이상입력해주세요" > 
+                            <label class="inputbox_label">비밀번호<em id="list3">(필수)</em></label>
+						</div>
+					</li>
+					
+					
                     <li class="form_join_li">
                         <div class="inputbox _btn">
-                            <input type="password" name="user_pw" id="user_pw" class="input_join" maxlength="20" placeholder="비밀번호확인" > 
-                            <label class="inputbox_label">비밀번호 확인<em>(필수)</em></label>
-
+                            <input type="password" name="userRePw" id="reuserpw" class="input_join" maxlength="20" placeholder="비밀번호확인" > 
+                            <label class="inputbox_label">비밀번호 확인<em id="list4">(필수)</em></label>
+						</div>
+					</li>
                     <li class="form_join_li">
                         <div class="inputbox _btn">
-                            <input type="text" name="user_nick" id="user_nick" class="input_join" maxlength="10" placeholder="닉네임" > 
-                            <label class="inputbox_label">닉네임<em>(필수)</em></label>
-
+                            <input type="text" name="userNickName" id="usernick" class="input_join" maxlength="10" placeholder="닉네임" > 
+                            <label class="inputbox_label">닉네임<em id="list5">(필수)</em></label>
+					</div>
+					</li>
                     <li class="form_join_li">
                         <div class="inputbox _btn">
-                            <input type="email" name="user_email" id="user_email" class="input_join"  placeholder="이메일" > 
-                            <label class="inputbox_label">이메일<em>(필수)</em></label>
+                            <input type="email" name="useremail" id="useremail" class="input_join"  placeholder="이메일" > 
+                            <label class="inputbox_label">이메일<em id="list6">(필수)</em></label>
+                     </div>
                     </li>
 
 
                     <li class="form_join_li">
                         <div class="inputbox _btn">
-                            <input type="tel" name="user_phone" id="user_phone" class="input_join"  placeholder="핸드폰" > 
-                            <label class="inputbox_label">핸드폰<em>(필수)</em></label>
+                            <input type="tel" name="userHandPhone" id="userphone" class="input_join"  placeholder="하이픈(-)없이 입력해주세요" > 
+                            <label class="inputbox_label">핸드폰<em id="list7">(필수)</em></label>
+                         </div>
                     </li>
+                    
 
                     <li class="form_join_li">
                         <div class="inputbox _btn">
-                            <input type="text" name="user_pet" id="user_pet" class="input_join"  placeholder="견종/묘종" > 
+                            <input type="text" name="userAnimalType" id="userpet" class="input_join"  placeholder="견종/묘종" > 
                             <label class="inputbox_label">견종/묘종</em></label>
+                     </div>
+                     
                     </li>
 
                 </ul>
 
             </div>
             <div class="form_joinbtn">
-                    <input type="button" value="회원가입" class="form_joinbtn_button">
+                    <input  type="submit" value="회원가입" class="form_joinbtn_button">
                 </div>
 
 
         </form>
 
-
-
-    </div>
-
+</div>
 
     
 </body>

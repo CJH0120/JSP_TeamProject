@@ -19,7 +19,7 @@
                
                
 
-                <form action="join2.jsp" class="join_form" name="join_form" id="join_form">
+                <form action="memberJoin2.jsp" class="join_form" name="join_form" id="join_form">
              
               
                 <div class="join_row" >

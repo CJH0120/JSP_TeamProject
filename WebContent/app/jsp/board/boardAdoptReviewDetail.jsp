@@ -347,11 +347,11 @@
 </style>
 <body>
 
-	<c:set var="reviewDetail" value="${reviewDetail}"/>
+
 
    <%@ include file="/app/jsp/fix/header.jsp" %> 
  
-   
+   	<c:set var="review" value="${review}"/>
     <section>
         <!--배너 사진-->
         <div class="content">
@@ -376,19 +376,19 @@
         <p><pre>밤순이 카페왔어용!!
         밤순이 배고팡!</pre></p> -->
        	<div class="write" style="margin-top: -25px;">
-       		<h4 class="subject">${reviewDetail.getReviewTitle()}</h4>
+       		<h4 class="subject">${review.getReviewTitle()}</h4>
        		<ul class="date">
-       			<li style="margin-right: 765px;">작성자 : ${reviewDetail.getUserId()}</li>
-       			<li>${reviewDetail.getReviewBoardNum()}</li>
-       			<li>${reviewDetail.getReviewDate()}</li>
-       			<li>HIT : ${reviewDetail.getReviewReadCount()}</li>
+       			<li style="margin-right: 720px;">작성자 : ${review.getUserId()}</li>
+       			<li style="visibility: hidden;">${review.getReviewBoardNum()}</li>
+       			<li>Date : ${review.getReviewDate()}</li>
+       			<li>HIT : ${review.getReviewReadCount()}</li>
        		</ul>
        		<div>
        			<img src="http://hibyeshelter.com/file_data/realshelter01/2020/12/06/09ee5ca2b11ef0d954fca1d339a2a574.jpg" style="width: 300px;">
        			<br>
        			<br>
        			<div>
-       				<p><pre>${reviewDetail.getReviewContent()}</pre></p>
+       				<p><pre>${review.getReviewContent()}</pre></p>
        			</div>
        		</div>
        	</div>
@@ -556,7 +556,7 @@
         	</div>
         <!-- 목록 버튼 -->
            <div class="writeWrap">
-         		<a class="writeBtn" href="${pageContext.request.contextPath}/app/jsp/board/showMyPet.jsp">목록</a>
+         		<a class="writeBtn" href="${pageContext.request.contextPath}/board/AdoptReviewList.bo">목록</a>
          		</div>
         	
     

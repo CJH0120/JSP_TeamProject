@@ -176,7 +176,7 @@
  
  <!-- 작성폼 -->
  <div>
- <form action="${pageContext.request.contextPath}/board/AdoptReviewWriteOk.bo" method="post" enctype="multipart/form-data">
+ <form action="${pageContext.request.contextPath}/board/AdoptReviewWriteOk.bo" method="post" name="writeForm" enctype="multipart/form-data">
 	<table id="write">
 		<tbody>
 			<tr>
@@ -193,7 +193,7 @@
 			</tr>
 			<tr>
 				<th>내용</th>
-				<td><textarea name="content" id="editor"></textarea>
+				<td><textarea name="reviewContent" id="editor"></textarea>
 			</tr>
 		</tbody>
 	</table>

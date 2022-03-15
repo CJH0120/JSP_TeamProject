@@ -333,13 +333,14 @@
            
            <!-- 글쓰기 버튼 -->
            <div class="writeWrap">
-         		<a class="writeBtn" href="${pageContext.request.contextPath}/board/AdoptReviewWrite.bo">글쓰기</a>
+         		<a class="writeBtn" href="${pageContext.request.contextPath}/app/jsp/board/boardAdoptReviewWrite.jsp">글쓰기</a>
          		</div>
              
-           <!--동물 자랑 사진 게시판-->
+           <!--입양 후기 사진 게시판-->
            <c:choose>
            	<c:when test="${reviewList != null}">
            		<c:forEach var="review" items="${reviewList}">
+           <form id="like_form">
             <ul class="gridContainer">
                <li class="grid" onclick="">                  
                      <div class="g_img">
@@ -349,11 +350,12 @@
                      <div class="g_text">
                         <p><span></span>${review.getReviewTitle()}</p>
                         <p>${review.getUserId()}</p>
-                        <button type="submit"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3Y69Ohb8f9aXl6IsFFODFd4OxwkDO6gaE-A&usqp=CAU"></button>
+                        <button type="submit" onclick="like()"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3Y69Ohb8f9aXl6IsFFODFd4OxwkDO6gaE-A&usqp=CAU"></button>
                         									<span class="hitNum">${review.getReviewLike()}</span><span class="date"><img src="https://png.pngtree.com/element_our/png/20181113/wall-clock-logo-icon-design-template-vector-illustration-png_236712.jpg" class="clockPicture">${review.getReviewDate()}</span>
                      </div>
                </li>
              </ul>
+             </form>
            		</c:forEach>
            	</c:when>
            	<c:otherwise>
@@ -421,5 +423,27 @@
   <!-- footer Include -->
  <%@ include file="/app/jsp/fix/footer.jsp" %>
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-        <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/header.js" ></script> 
+        <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/header.js" ></script>
+        <script>
+        		function like(){
+        			$.ajax({
+        				url: "${pageContext.request.contextPath}/board/AdoptReviewLike.bo?reviewBoardNum=${review.getReviewBoardNum()}",
+        				type: "POST",
+        				data: $("#like_form").serialize(),
+        				success: function(data){
+        					console.log(data);
+        					alert("'좋아요'가 반영되었습니다!'");
+        					$(".hitNum").html(data.like);
+        				},
+        				
+        				error:
+        					function(request, status, error){
+        					alert("ajax실패")
+        				}
+        			});
+        		}
+        
+        				
+        
+        </script> 
 </html>

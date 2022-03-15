@@ -26,18 +26,19 @@
                     <li class="form_join_li">
                         <div class="inputbox _btn">
                              
-                             <input type="text" name="userid" id="userid" class="input_join" maxlength="15" placeholder="영문자로 시작하는 6~20자 영문자 또는 숫자로 입력해주세요" > 
+                             <input type="text" name="userId" id="userid" class="input_join" maxlength="15" placeholder="영문자로 시작하는 6~20자 영문자 또는 숫자로 입력해주세요" > 
                             <label class="inputbox_label">아이디<em id="list1">(필수)</em></label>
                           	</div>
                           	</li>
 
-                    <li class="form_join_li">
+            		     <li class="form_join_li">
                         <div class="inputbox _btn">
                             <input type="text" name="userName" id="username" class="input_join" maxlength="6" placeholder="이름" > 
                             
                             <label class="inputbox_label">이름<em id="list2" >(필수)</em></label>
 						</div>
 					</li>
+					
 					
 					
                     <li class="form_join_li">
@@ -47,13 +48,16 @@
 						</div>
 					</li>
 					
-					
-                    <li class="form_join_li">
+					 <li class="form_join_li">
                         <div class="inputbox _btn">
                             <input type="password" name="userRePw" id="reuserpw" class="input_join" maxlength="20" placeholder="비밀번호확인" > 
                             <label class="inputbox_label">비밀번호 확인<em id="list4">(필수)</em></label>
 						</div>
 					</li>
+					
+					   
+                   
+                   
                     <li class="form_join_li">
                         <div class="inputbox _btn">
                             <input type="text" name="userNickName" id="usernick" class="input_join" maxlength="10" placeholder="닉네임" > 
@@ -62,7 +66,7 @@
 					</li>
                     <li class="form_join_li">
                         <div class="inputbox _btn">
-                            <input type="email" name="useremail" id="useremail" class="input_join"  placeholder="이메일" > 
+                            <input type="email" name="userEmail" id="useremail" class="input_join"  placeholder="이메일" > 
                             <label class="inputbox_label">이메일<em id="list6">(필수)</em></label>
                      </div>
                     </li>
@@ -88,7 +92,7 @@
 
             </div>
             <div class="form_joinbtn">
-                    <input  type="submit" value="회원가입" class="form_joinbtn_button" >
+                    <input  type="button" value="회원가입" class="form_joinbtn_button" onclick= "send()") >
                 </div>
 
 

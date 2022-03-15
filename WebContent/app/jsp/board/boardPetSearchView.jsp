@@ -638,7 +638,11 @@ div.psReplyWriteImg img {
 	<c:set var="animal" value="${animal}" />
 	<!-- 헤더 영역 -->
 	<%@ include file="../fix/header.jsp"%>
-
+	<span id="noticeEdt" style="position: absolute; top: -9999px;">
+			<fmt:parseDate value="${animal.getNoticeEdt()}" var="dateValue" pattern="yyyyMMdd"/>
+			<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd"/>
+	</span> 
+	
 
 	<!--content 시작-->
 
@@ -870,7 +874,7 @@ div.psReplyWriteImg img {
 				<div class="subText">
 					<div>구조일</div>
 					<span id="happenDt">
-					<fmt:parseDate value="${animal.getHappenDt()}" var="dateValue" pattern="yyyyMMdd"/>
+					<fmt:parseDate value="${animal.getNoticeSdt()}" var="dateValue" pattern="yyyyMMdd"/>
 					<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd"/>
 					</span> 
 
@@ -1084,6 +1088,7 @@ div.psReplyWriteImg img {
   
   	const psPoint = document.querySelector('.psPoint').innerText;
   	const happenDt = document.querySelector('#happenDt').innerText;
+  const noticeEdt = document.querySelector('#noticeEdt').innerText;
   	const noMap = document.querySelector('#noMap');
   	
     var count = 0;
@@ -1201,8 +1206,21 @@ div.psReplyWriteImg img {
         // 보호기간 Date
        
         //console.log(happenDt);
-      //const xmasDay = new Date("2022-03-12:12:00:00+0900"); 
-      const xmasDay = new Date(happenDt+":12:00:00+0900"); 
+      
+
+/*       console.log(time);
+      console.log(sethappenDt); */
+/*       const xmasDay = new Date(happenDt);  */
+const noticeEdtArr = noticeEdt.split('-');
+	
+		console.log(noticeEdt);
+		console.log(noticeEdtArr[0]);
+		console.log(noticeEdtArr[1]-1);
+		console.log(noticeEdtArr[2]); 
+		
+      const xmasDay = new Date(noticeEdtArr[0], noticeEdtArr[1]-1 , noticeEdtArr[2]); 
+      //const xmasDay = new Date("2022-03-12:12:00:00+0900");
+	console.log(xmasDay);
         
       const now=new Date();
       if(now>xmasDay){

@@ -3,9 +3,12 @@ package com.helpPet.app.board.boardAdoptReview.vo;
 public class ReviewVO {
 	private int reviewBoardNum;
 	private String userId;
+	private String userNum;
 	private String reviewTitle;
 	private int reviewLike;
 	private String reviewDate;
+	private String reviewContent;           
+	private int reviewReadCount;
 	
 	public ReviewVO() {;}
 
@@ -47,6 +50,30 @@ public class ReviewVO {
 
 	public void setReviewDate(String reviewDate) {
 		this.reviewDate = reviewDate;
+	}
+
+	public String getUserNum() {
+		return userNum;
+	}
+
+	public void setUserNum(String userNum) {
+		this.userNum = userNum;
+	}
+
+	public String getReviewContent() {
+		return reviewContent;
+	}
+
+	public void setReviewContent(String reviewContent) {
+		this.reviewContent = reviewContent;
+	}
+
+	public int getReviewReadCount() {
+		return reviewReadCount;
+	}
+
+	public void setReviewReadCount(int reviewReadCount) {
+		this.reviewReadCount = reviewReadCount;
 	}
 	
 	

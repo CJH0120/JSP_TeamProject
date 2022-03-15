@@ -35,7 +35,8 @@
 
 
     <!-- Middle -->
-    <form class="wrap" name="inputForm">
+    <form action="${pageContext.request.contextPath}/board/QnAOk.bo" 
+    class="wrap" name="inputForm" method="post">
         <div class="wrap_mid">
             <strong class="tit">연락 받으실 정보를 남겨주세요.
                 <span class="necessary"><b>*필수</b>
@@ -47,7 +48,7 @@
                     <td class="col1"><label for="userName" class="userName" >이름</label></td>
                     <p id="nameCheck"></p>
                     <td class="col2">
-                        <input type="text" name="input" class="input" id="userName" >
+                        <input type="text" name="userName" class="input" id="userName" >
                         <em id="list1"></em>
                     </td>
                 </tr>
@@ -55,7 +56,7 @@
                     <td class="col1"><label for="userEmail"  class="userEmail"></label>이메일</td>
                     <p id="emailCheck"></p>
                     <td class="col2">
-                        <input type="text" name="input" class="input" id="userEmail" ><span>@</span>
+                        <input type="text" name="userEmail" class="input" id="userEmail" ><span>@</span>
                         <div class="selectset" style="width: 150px;">
                             <select class="emailSelect" name="emailSelect" title="이메일선택">
                                 <option value="">메일선택</option>
@@ -72,7 +73,7 @@
                 <tr>
                     <td class="col1"><label for="userTitle"></label>제목</td>
                     <td class="col2">
-                        <input type="text" name="input" class="input">
+                        <input type="text" name="userTitle" class="input" id="userTitle">
                     </td>
                 </tr>
                 <tr>

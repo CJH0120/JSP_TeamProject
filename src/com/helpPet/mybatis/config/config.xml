@@ -3,9 +3,10 @@
 
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.helpPet.app.member.vo.MemberVO" alias="memberVO"/>
-		<typeAlias type="com.helpPet.app.board.boardAdoptReview.vo.ReviewVO" alias="reviewVO"/>
-		<typeAlias type="com.helpPet.app.board.boardAdoptReview.vo.ReviewDetailVO" alias="reviewDetailVO"/>
+	<typeAlias type="com.helpPet.app.member.vo.MemberVO" alias="memberVO"/>
+      	<typeAlias type="com.helpPet.app.board.boardAdoptReview.vo.ReviewVO" alias="reviewVO"/>
+      	<typeAlias type="com.helpPet.app.board.boardAdoptReview.vo.ReviewDetailVO" alias="reviewDetailVO"/>
+		<typeAlias type="com.helpPet.app.board.boardQnA.vo.QnAVO" alias="qnaVO"/>
 	</typeAliases>
 
 	<environments default="development">
@@ -23,6 +24,7 @@
 	<mappers>
 		<mapper resource="com/helpPet/mybatis/mapper/member.xml"/>
 		<mapper resource="com/helpPet/mybatis/mapper/review.xml"/>
+		<mapper resource="com/helpPet/mybatis/mapper/board.xml"/>
 	</mappers>
 
 </configuration>

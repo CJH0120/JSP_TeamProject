@@ -41,7 +41,6 @@ public class AdoptReviewList implements Action{
 		reviewMap.put("rowCount", rowCount);
 		
 		req.setAttribute("reviewList", dao.selectAll(reviewMap));
-		System.out.println(dao.selectAll(reviewMap));
 		req.setAttribute("page", page);
 		req.setAttribute("startPage", startPage);
 		req.setAttribute("endPage", endPage);

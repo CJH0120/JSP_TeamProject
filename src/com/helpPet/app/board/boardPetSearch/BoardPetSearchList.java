@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.helpPet.action.Action;
 import com.helpPet.action.ActionForward;
@@ -36,15 +37,50 @@ public class BoardPetSearchList implements Action{
 		AnimalDAO dao = new AnimalDAO();
 		ArrayList<AnimalVO> animalList = null;
 		ActionForward af = new ActionForward();
+		HttpSession session = req.getSession();
+
+
 		
+		String formOk = (String) session.getAttribute("formOk");
+		String bgnde=(String) session.getAttribute("bgnde");
+		String endde=(String) session.getAttribute("endde");
+		String upKindCd=(String) session.getAttribute("upKindCd"); 
+		String kind_cd=(String) session.getAttribute("kind_cd"); 
+		String neuterYn=(String) session.getAttribute("neuterYn"); 
+		
+		System.out.println("list.java");
+		System.out.println("formOk"+formOk);
+		System.out.println("bgnde"+bgnde);
+		System.out.println("endde"+endde);
+		System.out.println("upKindCd"+upKindCd);
+		System.out.println("kind_cd"+kind_cd);
+		System.out.println("neuterYn"+neuterYn);
+		
+		
+		
+
+		// ok 에서 데이터를 받아왔다면 에 대한 처리 
 
 		//사용자가 요청한 페이지
 		String temp = req.getParameter("page");			
+				
 		//한 페이지에 출력되는 게시글의 개수
 		int rowCount = 12;
 		//한 화면에 나오는 페이지 번호 수
-		int pageSize = 10;		
-		animalList=dao.getSearchPet(temp,rowCount+"");
+		int pageSize = 10;
+		if(formOk != null) {
+
+			bgnde.replaceAll("-", "");
+			endde.replaceAll("-", "");
+			System.out.println(upKindCd+"|"+kind_cd+"|"+neuterYn);
+		
+			upKindCd = upKindCd.equals("종류") ? null: upKindCd; 
+			kind_cd = kind_cd.equals("품종") ? null: kind_cd.equals("선택안함") ? null:kind_cd; 
+//			kind_cd = kind_cd.equals("선택안함") ? null: kind_cd; 
+			neuterYn = neuterYn.equals("중성화여부") ? null: neuterYn; 
+		}
+			
+		animalList=dao.getSearchPet(bgnde, endde, upKindCd, kind_cd, neuterYn, temp, rowCount+"");
 		
 		
 		
@@ -89,7 +125,7 @@ public class BoardPetSearchList implements Action{
 	
 		req.setAttribute("animalList", animalList);
 		
-		af.setRedirect(false);
+		af.setRedirect(false); // 리다이렉트면 정보를 날리고 포워드면 정보를 살려서 
 		af.setPath("/app/jsp/board/boardPetSearchList.jsp");
 		
 		return af;

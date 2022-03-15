@@ -15,7 +15,14 @@ import com.helpPet.app.board.boardAdoptReview.dao.AdoptReviewWrite;
 import com.helpPet.app.board.boardAdoptReview.dao.AdoptReviewWriteOk;
 import com.helpPet.app.board.boardPetSearch.BoardPetSanctuaryMap;
 import com.helpPet.app.board.boardPetSearch.BoardPetSearchList;
+import com.helpPet.app.board.boardPetSearch.BoardPetSearchListOk;
+import com.helpPet.app.board.boardPetSearch.BoardPetSearchReset;
 import com.helpPet.app.board.boardPetSearch.BoardPetSearchViewOk;
+import com.helpPet.app.board.boardQnA.dao.QnA;
+import com.helpPet.app.board.boardQnA.dao.QnAOk;
+
+import com.helpPet.app.board.boardPetSearch.SelectAnimalKind;
+
 
 public class BoardFrontController extends HttpServlet {
 	@Override
@@ -38,6 +45,9 @@ public class BoardFrontController extends HttpServlet {
 		case "/board/boardPetSearchList.bo":
 			af = new BoardPetSearchList().execute(req, resp);
 			break;
+		case "/board/boardPetSearchListOk.bo":
+			af = new BoardPetSearchListOk().execute(req, resp);
+			break;
 		case "/board/boardPetSearchViewOk.bo":
 			af = new BoardPetSearchViewOk().execute(req, resp);
 			break;
@@ -58,6 +68,18 @@ public class BoardFrontController extends HttpServlet {
 			break;
 		case "/board/AdoptReviewWriteOk.bo":
 			af = new AdoptReviewWriteOk().execute(req, resp);
+			break;
+		case "/board/QnA.bo":
+			af = new QnA().execute(req, resp);
+			break;
+		case "/board/QnAOk.bo":
+			af = new QnAOk().execute(req, resp);
+			break;
+		case "/board/selectAnimalKind.bo":
+			af = new SelectAnimalKind().execute(req, resp);
+			break;
+		case "/board/boardPetSearchReset.bo":
+			af = new BoardPetSearchReset().execute(req, resp);
 			break;
 		}
 		
