@@ -94,30 +94,29 @@
                               <!-- <li class="nav_sub_header_li">33</li> -->
                           </ul>
                       </li>
-                      <li class="nav_header_li"  id="nav_header_li"><a href ="${pageContext.request.contextPath}/app/jsp/board/boardCompany.jsp"><span>소개</span></li>
+                      <li class="nav_header_li"  id="nav_header_li"><a href ="${pageContext.request.contextPath}/app/jsp/board/boardCompany.jsp"></a><span>소개</span></li>
                    
-                          <ul class="nav_sub_header">
-                              <!-- <li class="nav_sub_header_li"><a>맵핑</a></li> -->
-                              <!-- <li class="nav_sub_header_li"><a>자주하는 질문</a></li> -->
-                              <!-- <li class="nav_sub_header_li"><a>33</a></li> -->
-                          </ul>
-                      </li>
+                          
+                     
                   </ul>
                 
               </nav>
               
               </div>
+              
           </div>
           </div>
               
     <!-- 로그인 -->
+    <form method="post" name="LoginForm" id="LoginForm" action="${pageContext.request.contextPath }/member/MemberLoginOk.me" >
     <fieldset class="login_wrap" id="login_wrap">
+      	<div style="width: 80%; margin: 0 auto;">
       <div class="login_header_text_wrap">
       <H1 class="login_header_text"><a style="text-decoration: none">로그인</a></H1>
       <a id="login_header_close" onclick="modalClose()">닫기</a>
       </div>   
   
-      <form method="post" name="LoginForm" id="LoginForm" action="#" >
+     
      
      
       <div class="input_box">
@@ -127,14 +126,15 @@
   
   
       <div class="input_box">
-          <input type="text" id="user_pw" placeholder="비밀번호" class="input_box_input">
+          <input type="password" id="user_pw" placeholder="비밀번호" class="input_box_input">
           <label class="input_box_label">비밀번호</label>
       </div>
-  
+      
+ 	  
       <div class="left_util_area">
           <div>
           <input type="checkbox" name="save_id" id="save_id">
-          <label for="saveid" >아이디 저장하기</label><br>
+          <label for="saveid">아이디 저장하기</label><br>
         </div>
         <div>
             <input type="checkbox" name="save_idpw" id="save_idpw">
@@ -142,11 +142,9 @@
         </div>
   
       </div>
-  
-   
-  
+  	
       <div class="login_btn_area">
-      <input type="button" value="로그인" name="user_login" id="user_login" class="user_login">
+      <input type="button" value="로그인" name="user_login" id="user_login" class="user_login" )>
 
 
       <a href="javascript:void(0)" onclick="kakaoLogin(); " class="user_login" >
@@ -161,22 +159,11 @@
         <a href="${pageContext.request.contextPath}/app/jsp/member/memberFind.jsp" class="find_idpw">아이디/비밀번호 찾기</a><br>
         <a href ="${pageContext.request.contextPath}/app/jsp/member/memberJoin1.jsp" class="join_btn">회원가입</a>
     </div>
-      <!-- <div class="kakao_login">
-      <a href="javascript:void(0)" onclick="kakaoLogin();" >
-      <span>
-          <img src="https://cdn.discordapp.com/attachments/947836644889870356/949691479830450266/kakao_login_medium_wide.png"alt="" ></span>
-                </a>
-         
-      </div> -->
+       </div>
   
-  
-      </form>
-  
-  
-  
-  
-  </fieldset>
-      
+  	</fieldset>
+    </form>
+   
   
   
   <!-- 모바일 앱 -->

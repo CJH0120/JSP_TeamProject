@@ -13,15 +13,16 @@ import com.helpPet.app.board.boardAdoptReview.dao.AdoptReviewDetailOk;
 import com.helpPet.app.board.boardAdoptReview.dao.AdoptReviewList;
 import com.helpPet.app.board.boardAdoptReview.dao.AdoptReviewWrite;
 import com.helpPet.app.board.boardAdoptReview.dao.AdoptReviewWriteOk;
+import com.helpPet.app.board.boardPetSearch.BoardDeleteReplyOk;
 import com.helpPet.app.board.boardPetSearch.BoardPetSanctuaryMap;
 import com.helpPet.app.board.boardPetSearch.BoardPetSearchList;
 import com.helpPet.app.board.boardPetSearch.BoardPetSearchListOk;
+import com.helpPet.app.board.boardPetSearch.BoardPetSearchReplyOk;
 import com.helpPet.app.board.boardPetSearch.BoardPetSearchReset;
 import com.helpPet.app.board.boardPetSearch.BoardPetSearchViewOk;
+import com.helpPet.app.board.boardPetSearch.SelectAnimalKind;
 import com.helpPet.app.board.boardQnA.dao.QnA;
 import com.helpPet.app.board.boardQnA.dao.QnAOk;
-
-import com.helpPet.app.board.boardPetSearch.SelectAnimalKind;
 
 
 public class BoardFrontController extends HttpServlet {
@@ -80,6 +81,12 @@ public class BoardFrontController extends HttpServlet {
 			break;
 		case "/board/boardPetSearchReset.bo":
 			af = new BoardPetSearchReset().execute(req, resp);
+			break;
+		case "/board/boardPetSearchReplyOk.bo":
+			af = new BoardPetSearchReplyOk().execute(req, resp);
+			break;
+		case "/board/BoardDeleteReplyOk.bo":
+			af = new BoardDeleteReplyOk().execute(req, resp);
 			break;
 		}
 		

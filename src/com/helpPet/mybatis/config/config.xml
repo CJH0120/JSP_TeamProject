@@ -7,6 +7,8 @@
       	<typeAlias type="com.helpPet.app.board.boardAdoptReview.vo.ReviewVO" alias="reviewVO"/>
       	<typeAlias type="com.helpPet.app.board.boardAdoptReview.vo.ReviewDetailVO" alias="reviewDetailVO"/>
 		<typeAlias type="com.helpPet.app.board.boardQnA.vo.QnAVO" alias="qnaVO"/>
+		<typeAlias type="com.helpPet.app.board.boardQnA.vo.FaqVO" alias="faqVO"/>
+		<typeAlias type="com.helpPet.app.board.boardPetSearch.vo.PetSearchReplyVO" alias="petSearchReplyVO"/>
 	</typeAliases>
 
 	<environments default="development">
@@ -25,6 +27,7 @@
 		<mapper resource="com/helpPet/mybatis/mapper/member.xml"/>
 		<mapper resource="com/helpPet/mybatis/mapper/review.xml"/>
 		<mapper resource="com/helpPet/mybatis/mapper/board.xml"/>
+		<mapper resource="com/helpPet/mybatis/mapper/petSearchReply.xml"/>
 	</mappers>
 
 </configuration>

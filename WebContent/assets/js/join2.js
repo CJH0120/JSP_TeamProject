@@ -23,7 +23,7 @@ $("#userid").blur(function () {
     type: "get",
     dataType: "json",
     success: function (us) {
-      if (us.status == "ok" && regid.test($("#userid").val())) {
+      if (us.status == "ok" && !regid.test($("#userid").val())) {
         $("#list1").text("사용 가능한 아이디입니다.");
         $("#list1").css("color", "blue");
         check = true;
@@ -56,6 +56,7 @@ $("#usernick").blur(function () {
 	        $("#list5").text("사용할수없거나 중복된 닉네임입니다.");
 	        $("#list5").css("color", "red");
 	        check = false;
+	        
 	      }
 	      
 	    },
@@ -72,6 +73,7 @@ $("#useremail").blur(function () {
 	  $.ajax({
 	    url:
 	      contextPath + "/member/MemberCheckMailOk.me?UserEm=" + $("#useremail").val(),
+	      
 	    type: "get",
 	    dataType: "json",
 	    success: function (us) {
@@ -167,24 +169,13 @@ $("#username").blur(function () {
 function send(){
 
 	
-	if(!check ){
+	if(check === false){
 		alert("놓친부분이있나 확인해보세요!");
 		return;
 	}
-	if(!regid.test($("#userid").val())){
-		alert("놓친부분이있나 확인해보세요!");
-		return false;
-	}
 	
-	if(!regnick.test($("#usernick").val())){
-		alert("놓친부분이있나 확인해보세요!");
-		return false;
-	}
-	if(!regemail.test($("#useremail").val())){
-		alert("놓친부분이있나 확인해보세요!");
-		return false;
 		
-	}if(!regpw.test($("#userpw").val())){
+	if(!regpw.test($("#userpw").val())){
 		alert("놓친부분이있나 확인해보세요!");
 		return false;
 	}if(($("#reuserpw").val())  !==($("#userpw").val()) ){
@@ -198,10 +189,17 @@ function send(){
 	}
 		
 	
+	 
+	
+	 
+	alert('작성하신 이메일 :'+($("#useremail").val())+'\n\n메일인증후 로그인합니다');
+	
+
 	
 
 	join1form.submit();
-}
+	
+};
 
 
 

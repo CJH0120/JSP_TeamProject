@@ -25,11 +25,7 @@
 	</select>
 	
 	
-	
-	<!-- 회원 가입 -->
-	<insert id="join1form" parameterType="memberVO">
-		insert into tbl_user
-	</insert>
+
 	
 	
 	<insert id="join" parameterType="memberVO">

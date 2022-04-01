@@ -48,13 +48,15 @@ public class MemberFrontController extends HttpServlet {
 				
 			}else if(command.equals("/member/MemberJoinOk.me")) {
 				af = new MemberJoinOk().execute(req, resp);
-				
-			}else if(command.equals("/member/MemberLogin.me")) {
-				af = new ActionForward();
-				af.setRedirect(false);
-				af.setPath("/app/jsp/member/login.jsp");
-				
-			}else if(command.equals("/member/MemberLoginOk.me")) {
+				af.setPath("/app/jsp/index.jsp");
+			}
+//			else if(command.equals("/member/MemberLogin.me")) {
+//				af = new ActionForward();
+//				af.setRedirect(false);
+//				
+//				
+//			}
+			else if(command.equals("/member/MemberLoginOk.me")) {
 				af = new MemberLoginOk().execute(req, resp);
 				
 			}else if(command.equals("/member/MemberLogout.me")) {

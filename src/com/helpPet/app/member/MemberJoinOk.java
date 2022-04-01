@@ -38,6 +38,7 @@ public class MemberJoinOk implements Action{
 		//미리 붙여놓고 전송한다.
 		af.setPath(req.getContextPath() + "/member/MemberLogin.me");
 		
+		
 		return af;
 	}
 

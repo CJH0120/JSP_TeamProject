@@ -23,20 +23,17 @@ public class MemberLoginOk  implements Action{
 		int userNum = 0;
 		ActionForward af = new ActionForward();
 		HttpSession session = req.getSession();
-
+	
 		loginMap.put("userId", req.getParameter("userId"));
 		loginMap.put("userPw", req.getParameter("userPw"));
 		
 		userNum = dao.login(loginMap);
 		if(userNum == 0) {//로그인 실패
-			af.setRedirect(false);
-			af.setPath("/member/MemberLogin.me?code=" + userNum);
+			System.out.println(loginMap);
 		}else {//로그인 성공
-			session.setAttribute("userNum", userNum);
-			af.setRedirect(true);
-			af.setPath(req.getContextPath() + "/board/BoardListOk.bo");
+		System.out.println(loginMap);
 		}
-		
+		af.setRedirect(false);
 		return af;
 	}
 

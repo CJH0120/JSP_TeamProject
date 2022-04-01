@@ -8,10 +8,29 @@
 		order by 1 desc limit #{startRow}, #{rowCount}
 </select>
 
+<!-- 입양후기 게시글 상세페이지 -->
+<select id="selectDetail" parameterType="_int" resultType="ReviewVO">
+	select reviewBoardNum, u.userId, reviewTitle, reviewContent, reviewReadCount, reviewDate 
+		from tbl_review r join tbl_user u
+		on r.userId = u.userId and reviewboardNum = #{reviewBoardNum}
+</select>
+
 <!-- 입양후기 게시글 전체 개수 -->
 <select id="getTotal" resultType="_int">
 	select count(reviewBoardNum) from tbl_review
 </select>
+
+<!-- 최근 게시글 번호 -->
+<select id="getSeq" resultType="_int">
+	select 'AUTO_INCREMENT` from information_schema.TABLES
+	where TABLE_SCHEMA = 'HELPPET' and TABLE_NAME = 'tbl_review';
+</select>
+
+<!-- 게시글 작성 -->
+<insert id="insert" parameterType="ReviewVO">
+	insert into tbl_review (reviewTitle, reviewContent) 
+	values(#{reviewTitle}, #{reviewContent})
+</insert>
 
 <!-- 좋아요 개수 가져오기 -->
 <select id="getLike" parameterType="_int" resultType="_int">
@@ -26,11 +45,8 @@
 	where reviewBoardNum = #{reviewBoardNum};
 </update>
 
-<!-- 입양후기 게시글 상세페이지 -->
-<select id="selectDetail" parameterType="_int" resultType="ReviewVO">
-	select reviewBoardNum, u.userId, reviewTitle, reviewContent, reviewReadCount, reviewDate 
-		from tbl_review r join tbl_user u
-		on r.userId = u.userId and reviewboardNum = #{reviewBoardNum}
-</select>
+
+
+
 
 </mapper>

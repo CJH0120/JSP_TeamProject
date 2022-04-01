@@ -83,7 +83,7 @@
                     <li class="form_join_li">
                         <div class="inputbox _btn">
                             <input type="text" name="userAnimalType" id="userpet" class="input_join"  placeholder="견종/묘종" > 
-                            <label class="inputbox_label">견종/묘종</em></label>
+                            <label class="inputbox_label">견종/묘종</label>
                      </div>
                      
                     </li>
@@ -92,7 +92,7 @@
 
             </div>
             <div class="form_joinbtn">
-                    <input  type="button" value="회원가입" class="form_joinbtn_button" onclick= "send()") >
+                    <input  type="button" value="회원가입" class="form_joinbtn_button" onclick= "send()" >
                 </div>
 
 

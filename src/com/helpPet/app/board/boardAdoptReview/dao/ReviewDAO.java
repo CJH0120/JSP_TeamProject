@@ -32,6 +32,16 @@ public class ReviewDAO {
 		return sqlSession.selectOne("Review.selectDetail", reviewBoardNum);
 	}
 	
+	//최근 게시글 번호
+	public int getSeq() {
+		return sqlSession.selectOne("Review.getSeq");
+	}
+	
+	//게시글 추가
+	public void insert(ReviewVO review) {
+		sqlSession.insert("Review.insert", review);
+	}
+	
 	//좋아요 개수 가져오기
 	public int getLike(int reviewBoardNum) {
 		return sqlSession.selectOne("Review.getLike", reviewBoardNum);

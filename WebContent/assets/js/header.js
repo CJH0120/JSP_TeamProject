@@ -212,29 +212,54 @@ function modalClose() {
   
 }
 
+// 로그인 클릭 
+//var regid = /^[a-z]+[a-z0-9]{5,19}$/m;
+//var regpw =  /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{7,16}$/;
+//
+//$("#LoginForm").submit(function(event) {
+//
+//	     var userId = $("#user_id").val();
+//         var userPw = $("#user_pw").val();
+//         $.ajax({ // 컨트롤러와 통신
+//        	 type: 'POST',
+//        	 url: contextPath +"/member/MemberJoinOk.me?",
+//        	 data : "userId="+userId+"&userPw" + userPw, 
+//        	 success: function(data) {
+//        	 alert("성공");
+//        	 },
+//        	 error: function(jqXHR, textStatus, errorThrown) {
+//        	 alert("ERROR : ");
+//        	 }
+//         });
+//});
+//
+//
+//$('#user_login').click(function () { $("form").submit(); });
+//
+//
+//
+//
 
-// 카카오 로그인
 
-Kakao.init('148955e36743d0ad9064bf7587cb7f18'); //발급받은 키 중 javascript키를 사용해준다.
-console.log(Kakao.isInitialized()); // sdk초기화여부판단
-//카카오로그인
-function kakaoLogin() {
-    Kakao.Auth.login({
-      success: function (response) {
-        Kakao.API.request({
-          url: '/v2/user/me',
-          success: function (response) {
-        	  console.log(response)
-          },
-          fail: function (error) {
-            console.log(error)
-          },
-        })
-      },
-      fail: function (error) {
-        console.log(error)
-      },
-    })
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
